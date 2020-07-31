@@ -1,0 +1,99 @@
+<div id="content" class="content content_full">
+   <div class="row clearfix" id="inner-content">
+      <div role="main" class="large-9 medium-12 columns" id="main">
+         <script type="text/javascript">
+            try {
+            	document.getElementById('user_login').focus();
+            } catch (e) {
+            }
+         </script>
+         <script type="text/javascript">
+            try {
+            	document.getElementById('user_login').focus();
+            } catch (e) {
+            }
+         </script>
+         <h1 class="singleh1">Sign In</h1>
+         <div class="error_msg"><strong>Error</strong>: The username field is empty.</div>
+         <div class="error_msg"><strong>Error</strong>: The password field is empty.</div>
+         <div class="login_form_l">
+            <h4>Sign In</h4>
+            <div class="login_content">
+            </div>
+            <div class="login_form_box">
+               <form name="loginform" id="loginform" action="https://demo.templatic.com/video/index.php?ptype=login" method="post">
+                  <div class="form_row clearfix">
+                     <label>Username <span>*</span> </label>
+                     <input type="text" name="log" id="user_login" value="" size="20" class="textfield error">
+                     <span id="user_loginInfo" class="message_error2">Please Enter Username</span>
+                  </div>
+                  <div class="form_row clearfix">
+                     <label>Password <span>*</span> </label>
+                     <input type="password" name="pwd" id="user_pass" class="textfield" value="">
+                     <span id="user_passInfo"></span>
+                  </div>
+                  <p class="rember">
+                     <input name="rememberme" type="checkbox" id="rememberme" value="forever" class="fl">
+                     <label for="rememberme">Remember me on this computer</label>
+                  </p>
+                  <input class="b_signin_n" type="submit" value="Sign In" name="submit">
+                  <input type="hidden" name="redirect_to" value="https://demo.templatic.com/video/submit-video/">
+                  <input type="hidden" name="testcookie" value="1">
+                  <a href="javascript:void(0);" onclick="showhide_forgetpw();">Forgot Password?</a> 
+               </form>
+               <div id="lostpassword_form" style="">
+                  <h4>Forgot Password?</h4>
+                  <form name="lostpasswordform" id="lostpasswordform" action="https://demo.templatic.com/video/?ptype=login&amp;action=lostpassword" method="post">
+                     <div class="form_row clearfix"> <label>
+                        E-mail: </label>
+                        <input type="text" name="user_login" id="user_login1" value="" size="20" class="textfield">
+                     </div>
+                     <input type="submit" name="get_new_password" value="Get New Password" class="b_signin_n ">
+                  </form>
+               </div>
+            </div>
+            <script type="text/javascript">
+               function showhide_forgetpw() {
+               	if (document.getElementById('lostpassword_form').style.display == 'none'){
+               		document.getElementById('lostpassword_form').style.display = ''
+               	} else {
+               		document.getElementById('lostpassword_form').style.display = 'none';
+               	}
+               }
+            </script>
+         </div>
+      </div>
+      <!-- Front  Page sidebar -->
+      <div id="sidebar1" class="sidebar large-3 medium-12 columns" role="complementary">
+         <div id="tmpl_adv_widget-21" class="widget widget Advertise">
+            <div class="widget-wrap widget-inside">
+               <div class="advt advt-1c">
+                  <a href="http://templatic.com"><img src="https://demo.templatic.com/video/wp-content/uploads/sites/33/2020/06/banner.jpg" class="thumb-img"></a> 
+               </div>
+            </div>
+         </div>
+         <div class="widget login_widget" id="login_widget">
+            <h3 class="widget-title"><span class="red"></span>Dashboard</h3>
+            <ul class="xoxo blogroll">
+               <li class="tmpl-login current_page_item">  <a href="https://demo.templatic.com/video/?ptype=login" title="Login"> <i class="fa fa-key"></i> Login</a></li>
+               <li class="listing-btn"><a href="https://demo.templatic.com/video/"> <i class="fa fa-play-circle"></i>Add Video</a></li>
+            </ul>
+         </div>
+         <div id="text-7" class="widget widget_text">
+            <div class="widget-wrap widget-inside">
+               <h3 class="widget-title h2"><span class="red">Submit</span> your videos</h3>
+               <div class="textwidget">Share your videos on our popular video portal. Get maximum exposure to your videos and enjoy our friendly community. Please note that all submitted videos will require admin approval before they go live.</div>
+            </div>
+         </div>
+      </div>
+      <!-- Front  Page sidebar End-->
+      <script type="text/javascript">
+         try {
+         	document.getElementById('user_login').focus();
+         } catch (e) {
+         }
+      </script>
+      <script type="text/javascript" src="https://demo.templatic.com/video/wp-content/themes/videobower/functions/registration/reg_validation.js"></script> 
+      <script language="javascript">document.getElementById('lostpassword_form').style.display = '';</script>
+   </div>
+</div>

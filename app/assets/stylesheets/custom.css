@@ -1,0 +1,7 @@
+body #main ul.ytchagallery .ytc-row { width: calc(100% + 35px) !important; } body #main ul.ytchagallery li .ytcliinner { padding: 0 35px 30px 0 !important; } body #main .ytcplayer-fixwidthwrapper { margin-bottom: 40px; }
+body .vmcplayerdiv { display: block; margin-bottom: 40px; }
+body .vmcplayerdiv iframe.vmcplayer { width: 100% !important; }
+body ul.vmgallery li { margin: 0 35px 35px 0; }
+body ul.vmgallery li:nth-child(4n+0) { margin-right: 0; }
+
+
