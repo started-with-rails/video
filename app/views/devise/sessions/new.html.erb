@@ -1,0 +1,31 @@
+<div id="content" class="content content_full">
+   <div class="row clearfix" id="inner-content">
+      <div role="main" class="large-9 medium-12 columns" id="main">
+         <h1 class="singleh1">Log In</h1>
+         <div class="login_form_l">
+            <div class="login_content">
+
+            </div>
+            <div class="login_form_box">
+               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+               <div class="form_row clearfix">
+                  <label>Username <span>*</span> </label>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+               </div>
+               <div class="form_row clearfix">
+                  <label>Password <span>*</span> </label>
+                  <%= f.password_field :password, autocomplete: "current-password" %>
+               </div>
+               <p class="rember">
+                  <%= f.check_box :remember_me %>
+                  <label for="rememberme">Remember me on this computer</label>
+               </p>
+               <input class="b_signin_n" type="submit" value="Sign In" name="submit">
+               <% end %>
+            </div>
+            <%= render "devise/shared/links" %>
+         </div>
+      </div>
+       <%= render "devise/shared/sidebar" %>
+   </div>
+</div>

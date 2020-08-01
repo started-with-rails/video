@@ -1,20 +1,4 @@
  <header class="header" role="banner">
-    <nav role="navigation" class="top-nav show-for-large-up hide-for-xsmall-only">
-        <div class="row">
-            <div class="large-12 columns">
-            <ul id="menu-menu" class="sub-nav">
-                <li id="menu-item-1931" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1931 active"><a href="https://demo.templatic.com/video" aria-current="page">Home</a></li>
-                <li id="menu-item-1946" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-1946"><a href="https://demo.templatic.com/video/videoscategory/videos/">Videos</a></li>
-                <li id="menu-item-2446" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2446"><a href="https://demo.templatic.com/video/videoscategory/technology/">Technology</a></li>
-                <li id="menu-item-2447" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2447"><a href="https://demo.templatic.com/video/videoscategory/travel/">Travel</a></li>
-                <li id="menu-item-2445" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2445"><a href="https://demo.templatic.com/video/blog/">Blog</a></li>
-                <li id="menu-item-1961" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1961"><a href="https://demo.templatic.com/video/about/">About Us</a></li>
-                <li id="menu-item-2476" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2476"><a href="https://templatic.com/wordpress-video-themes/video/#pricing-table">Buy This Theme</a></li>
-                <li class="tmpl-login" ><a href="https://demo.templatic.com/video/?ptype=login">Login</a></li>
-            </ul>
-            </div>
-        </div>
-    </nav>
     <div id="inner-header" class="row" >
         <div class="large-12 columns">
             <div class="row">
@@ -30,7 +14,11 @@
             <div class="large-6 medium-6 columns head-right">
                 <div class="menu">
                     <ul class="primary_menu clearfix" id="menu-primary-items">
-                        <li class="tmpl-login tmpl-link" >  <a href="https://demo.templatic.com/video/?ptype=login" title=Login>Login</a></li>
+                       <% if user_signed_in? %>
+                            <li class="tmpl-login tmpl-link" > <%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+                        <%else%>
+                        <li class="tmpl-login tmpl-link" > <%= link_to "Sign in", new_user_session_path %></li>
+                        <%end%>
                         <li class='listing-btn'><a href='https://demo.templatic.com/video/submit-video/'>Add Video</a></li>
                     </ul>
                 </div>
@@ -61,17 +49,9 @@
                         <a href="https://demo.templatic.com/video/videoscategory/videos/">Category</a>
                         <ul class="dropdown">
                             <li id="menu-item-2451" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2451"><a href="https://demo.templatic.com/video/videoscategory/technology/">Technology</a></li>
-                            <li id="menu-item-2452" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2452"><a href="https://demo.templatic.com/video/videoscategory/travel/">Travel</a></li>
-                            <li id="menu-item-2454" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2454"><a href="https://demo.templatic.com/video/videoscategory/health/">Health education</a></li>
-                            <li id="menu-item-2670" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2670"><a href="https://demo.templatic.com/video/videoscategory/animation-videos/">Animation</a></li>
-                            <li id="menu-item-2671" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2671"><a href="https://demo.templatic.com/video/videoscategory/sports/">Sports</a></li>
-                            <li id="menu-item-2672" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2672"><a href="https://demo.templatic.com/video/videoscategory/life/">Life</a></li>
-                            <li id="menu-item-2673" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2673"><a href="https://demo.templatic.com/video/videoscategory/art/">Art</a></li>
-                            <li id="menu-item-2674" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2674"><a href="https://demo.templatic.com/video/videoscategory/science/">Science</a></li>
-                        </ul>
+                         </ul>
                         </li>
                         <li id="menu-item-2669" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2669"><a href="https://demo.templatic.com/video/about/">About Us</a></li>
-                        <li id="menu-item-2449" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2449"><a href="http://templatic.com/wordpress-themes-store/">WodPress themes club</a></li>
                         <li id="menu-item-2455" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2455"><a href="https://demo.templatic.com/video/blog-2/">Blog</a></li>
                         <li id="menu-item-2667" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2667"><a href="https://demo.templatic.com/video/faqs/">FAQs</a></li>
                         <li id="menu-item-2668" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2668"><a href="https://demo.templatic.com/video/submit-video/">Submit Video</a></li>
@@ -115,7 +95,6 @@
                         <li class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2447"><a href="https://demo.templatic.com/video/videoscategory/travel/">Travel</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2445"><a href="https://demo.templatic.com/video/blog/">Blog</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1961"><a href="https://demo.templatic.com/video/about/">About Us</a></li>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-2476"><a href="https://templatic.com/wordpress-video-themes/video/#pricing-table">Buy This Theme</a></li>
                     </ul>
                 </div>
             </div>
@@ -125,7 +104,11 @@
             <li class="has-form">
                 <div class="menu">
                     <ul class="primary_menu clearfix" id="menu-primary-items">
-                        <li class="tmpl-login tmpl-link" >  <a href="https://demo.templatic.com/video/?ptype=login" title=Login>Login</a></li>
+                       <% if user_signed_in? %>
+                            <li class="tmpl-login tmpl-link" ><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+                        <%else%>
+                        <li class="tmpl-login tmpl-link" > <%= link_to "Sign in", new_user_session_path %></li>
+                        <%end%>
                         <li class='listing-btn'><a href='https://demo.templatic.com/video/submit-video/'>Add Video</a></li>
                     </ul>
                 </div>

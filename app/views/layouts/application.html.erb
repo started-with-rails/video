@@ -25,6 +25,8 @@
    <div class="off-canvas-wrap" data-offcanvas>
       <div class="inner-wrap">
          <div id="container">
+         <p class="notice"><%#= notice %></p>
+         <p class="alert"><%#= alert %></p>
           <%= render 'shared/header' %>
           <%= yield %>
           <%= render 'shared/footer' %>
