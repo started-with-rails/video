@@ -5,3 +5,7 @@ body ul.vmgallery li { margin: 0 35px 35px 0; }
 body ul.vmgallery li:nth-child(4n+0) { margin-right: 0; }
 
 
+
+.hidden {
+    visibility: hidden;
+}

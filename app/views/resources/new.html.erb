@@ -1,0 +1,119 @@
+<div id="content" data-controller="resources">
+   <div id="inner-content" class="row clearfix">
+      <div id="main" class="large-9 medium-12 columns" role="main">
+         <ul class="breadcrumbs hide-for-xsmall-only show-for-medium-up">
+            <span class="trail-begin">
+               <li><a href="https://demo.templatic.com/video" title="Video" rel="home" class="trail-begin">Home</a></li>
+            </span>
+            <span class="trail-end">Submit Video</span>
+         </ul>
+         <article id="post-" class="clearfix post-2554 page type-page status-publish hentry" role="article" >
+            <header class="article-header">
+               <h1 class="page-title">Submit Video</h1>
+            </header>
+            <!-- end article header -->
+            <section class="entry-content clearfix" itemprop="articleBody">
+               <p>This is your video submission form from where users will be able to add their video listings on your website.</p>
+               <%= simple_form_for @resource do |f| %>
+             
+                <div class="accordion" id="post-listing" >
+                     <div id="step-post" class="accordion-navigation step-wrapper step-post">
+                        <a class="step_enter_detail step-heading submit-video active" href="#"><span>1</span><span>Enter Details</span><span></span></a>
+                        <div id="post" class="step-post content active clearfix">
+                           <div id="submit_form_custom_fields" class="submit_form_custom_fields">
+                              <div class='fields-set'>
+                                    <%= f.input :type,     as: :select, collection: Resource.types , prompt: "Select Video Type",label_method: :second, value_method: :first, input_html: { data: { action: "resources#set_video_input_type", target: "resources.type" } } %>                                        
+                              </div>
+
+                              
+                                 <div class='fields-set hidden'  data-target="resources.url" >			
+                                    <%= f.input :url %>
+                                 </div>
+
+                                   <div class='fields-set hidden'  data-target="resources.file" >			
+                                    <%= f.input :source_file , as: :file %>
+                                 </div>
+
+                                 <div class='fields-set hidden' data-target="resources.embed_code">			
+                                    <%= f.input :embed_code, as: :text %>
+                                 </div>
+
+                             
+                                
+                                 <div class="fields-set">
+                                  <%= f.input :allow_download, as: :boolean, checked_value: true, unchecked_value: false %>
+                                 </div>
+                              
+                              <!--common option for upload video and url-->
+                              <div class="fields-set div-autoplay" style="">
+                                  <%= f.input :auto_play, as: :boolean, checked_value: true, unchecked_value: false %>
+                              </div>
+                            
+                              <div id="div_video_thumbnail_option" >
+                                 <div class="fields-set">
+                                   <%= f.input :thumbnail_option,  as: :select, collection:[['Upload feature Image',1], ['Generate video thumbnail',2]] ,label_method: :first, value_method: :second, input_html: { data: { action: "resources#set_video_thumbnail_type", target: "resources.thumbnail_option" } } %> 
+                                 </div>
+                              </div>
+                              <div class="fields-set hidden" data-target="resources.thumbnail">
+                                 <%= f.input :source_thumbnail , as: :file %>
+                              </div>
+                              <div class='fields-set'>      
+                                     <%= f.association :categories %>
+                              </div>
+                              <div class='fields-set'>			
+                              <%= f.input :title %>
+                              </div>
+                              <div class='fields-set'>                   
+                                <%= f.input :excerpt , as: :text%>
+                              </div>
+                              <div class='fields-set'>
+                                   <%= f.input :description, as: :text %>
+                              </div>
+                           </div>
+                           <input type="submit" class="button secondary_btn post-edit-link" value="Create" />&nbsp;&nbsp;                        
+                        </div>
+                     </div>
+                  </div>
+               <%end%>
+               <div id="preview_submit_from_videos"  class="reveal-modal singular-videos preview_submit_from_data" data-reveal></div>
+              
+            </section>
+            <!-- end article section -->
+            <footer class="article-footer">
+               <p class="clearfix"></p>
+            </footer>
+            <!-- end article footer -->
+         </article>
+         <!-- end article -->
+         <!-- You can start editing here. -->
+         <!-- If comments are closed. -->
+         <!--p class="nocomments">Comments are closed.</p-->
+      </div>
+      <!-- end #main -->
+      <!-- Primary Sidebar widget -->
+      <div id="sidebar1" class="sidebar large-3 medium-12 columns" role="complementary">
+         <div id="tmpl_adv_widget-21" class="widget widget Advertise">
+            <div class="widget-wrap widget-inside">
+               <div class="advt advt-1c">
+                  <a href="http://templatic.com"><img src="https://demo.templatic.com/video/wp-content/uploads/sites/33/2020/06/banner.jpg" class="thumb-img"></a> 
+               </div>
+            </div>
+         </div>
+         <div class="widget login_widget" id="login_widget">
+            <h3  class="widget-title">Dashboard</h3>
+            <ul class="xoxo blogroll">
+               <li class="tmpl-login" >  <a href="https://demo.templatic.com/video/?ptype=login" title=Login> <i class="fa fa-key"></i> Login</a></li>
+               <li class='listing-btn'><a href='https://demo.templatic.com/video/submit-video/'> <i class='fa fa-play-circle'></i>Add Video</a></li>
+            </ul>
+         </div>
+         <div id="text-7" class="widget widget_text">
+            <div class="widget-wrap widget-inside">
+               <h3 class="widget-title h2">Submit your videos</h3>
+               <div class="textwidget">Share your videos on our popular video portal. Get maximum exposure to your videos and enjoy our friendly community. Please note that all submitted videos will require admin approval before they go live.</div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end #inner-content -->
+</div>
+<!-- end #content -->

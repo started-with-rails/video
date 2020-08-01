@@ -10,10 +10,67 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_01_042516) do
+ActiveRecord::Schema.define(version: 2020_08_01_064102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "app_settings", force: :cascade do |t|
+    t.string "title"
+    t.boolean "status"
+    t.text "value"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["title"], name: "index_app_settings_on_title", unique: true
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "title"
+    t.string "slug"
+    t.boolean "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_categories_on_slug", unique: true
+    t.index ["title"], name: "index_categories_on_title", unique: true
+  end
+
+  create_table "categories_resources", id: false, force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "resource_id"
+    t.index ["category_id", "resource_id"], name: "index_categories_resources_on_category_id_and_resource_id"
+    t.index ["category_id"], name: "index_categories_resources_on_category_id"
+    t.index ["resource_id"], name: "index_categories_resources_on_resource_id"
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "resources", force: :cascade do |t|
+    t.string "title"
+    t.string "slug"
+    t.boolean "allow_download"
+    t.boolean "auto_play"
+    t.string "excerpt"
+    t.string "description"
+    t.string "type"
+    t.text "embed_code"
+    t.string "url"
+    t.integer "user_id"
+    t.boolean "status"
+    t.boolean "featured"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_resources_on_slug", unique: true
+    t.index ["user_id"], name: "index_resources_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
