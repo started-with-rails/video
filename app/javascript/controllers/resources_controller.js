@@ -2,11 +2,23 @@ import { Controller } from 'stimulus';
 export default class extends Controller {
   static targets = [ "type", "url", "embed_code","file","thumbnail_option","thumbnail" ]
   connect() {
-    console.log("hello from StimulusJS")
+    let type = this.typeTarget.value.toLowerCase()
+    this.source_type(type)
+    let option = this.thumbnail_optionTarget.value
+    this.thumbnail_type(option)
   }
 
   set_video_input_type(event){
     let type = this.typeTarget.value.toLowerCase()
+    this.source_type(type)
+  }
+
+  set_video_thumbnail_type(event){
+    let option = this.thumbnail_optionTarget.value
+    this.thumbnail_type(option)
+  }
+
+  source_type(type){
     this.urlTarget.classList.toggle("hidden", true)
     this.embed_codeTarget.classList.toggle("hidden", true)
     this.fileTarget.classList.toggle("hidden", true)
@@ -22,14 +34,13 @@ export default class extends Controller {
           break;  
         default:
           // code block
-      }
+    }
+    
   }
 
-  set_video_thumbnail_type(event){
-    let option = this.thumbnail_optionTarget.value
+  thumbnail_type(option){
     this.thumbnailTarget.classList.toggle("hidden", true)
-    console.log(option)
-    if(option == 1){
+    if(option == 'upload'){
         this.thumbnailTarget.classList.toggle("hidden", false)
     }
   }

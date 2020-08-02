@@ -7,9 +7,9 @@ class CreateResources < ActiveRecord::Migration[6.0]
       t.boolean :auto_play
       t.string :excerpt
       t.string :description
-      t.string :type
+      t.string :resource_type
       t.text :embed_code
-      t.string :url
+      t.string :resource_url
       t.integer :user_id
       t.boolean :status
       t.boolean :featured

@@ -15,19 +15,21 @@
             <section class="entry-content clearfix" itemprop="articleBody">
                <p>This is your video submission form from where users will be able to add their video listings on your website.</p>
                <%= simple_form_for @resource do |f| %>
-             
                 <div class="accordion" id="post-listing" >
                      <div id="step-post" class="accordion-navigation step-wrapper step-post">
                         <a class="step_enter_detail step-heading submit-video active" href="#"><span>1</span><span>Enter Details</span><span></span></a>
                         <div id="post" class="step-post content active clearfix">
                            <div id="submit_form_custom_fields" class="submit_form_custom_fields">
                               <div class='fields-set'>
-                                    <%= f.input :type,     as: :select, collection: Resource.types , prompt: "Select Video Type",label_method: :second, value_method: :first, input_html: { data: { action: "resources#set_video_input_type", target: "resources.type" } } %>                                        
+
+                               
+
+                                    <%= f.input :resource_type,     as: :select, collection: Resource.types , prompt: "Select Video Type",label_method: :second, value_method: :first, input_html: { data: { action: "resources#set_video_input_type", target: "resources.type" } } %>                                        
                               </div>
 
                               
                                  <div class='fields-set hidden'  data-target="resources.url" >			
-                                    <%= f.input :url %>
+                                    <%= f.input :resource_url %>
                                  </div>
 
                                    <div class='fields-set hidden'  data-target="resources.file" >			
@@ -51,7 +53,7 @@
                             
                               <div id="div_video_thumbnail_option" >
                                  <div class="fields-set">
-                                   <%= f.input :thumbnail_option,  as: :select, collection:[['Upload feature Image',1], ['Generate video thumbnail',2]] ,label_method: :first, value_method: :second, input_html: { data: { action: "resources#set_video_thumbnail_type", target: "resources.thumbnail_option" } } %> 
+                                   <%= f.input :thumbnail_option,  as: :select,prompt: "Select Thumbnail Type", collection: Resource.resource_thumbnail_options ,label_method: :second, value_method: :first, input_html: { data: { action: "resources#set_video_thumbnail_type", target: "resources.thumbnail_option" } } %> 
                                  </div>
                               </div>
                               <div class="fields-set hidden" data-target="resources.thumbnail">
@@ -68,6 +70,9 @@
                               </div>
                               <div class='fields-set'>
                                    <%= f.input :description, as: :text %>
+                              </div>
+                                <div class='fields-set'>
+                                  <%= f.input :accepted_terms_and_conditions, as: :boolean %>
                               </div>
                            </div>
                            <input type="submit" class="button secondary_btn post-edit-link" value="Create" />&nbsp;&nbsp;                        

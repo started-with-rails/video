@@ -24,6 +24,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'friendly_id'
 gem 'simple_form'
+gem 'pry'
+gem 'image_processing'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -57,3 +59,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "stimulus_reflex", "~> 3.2"
+
+gem "optimism", "~> 0.3.5"

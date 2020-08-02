@@ -902,7 +902,7 @@ fieldset legend { font-weight: bold; background: white; padding: 0 0.21429rem; m
 [data-abide] .error small.error, [data-abide] span.error, [data-abide] small.error { display: block; padding: 0.42857rem 0.64286rem 0.64286rem; margin-top: -1px; margin-bottom: 1.14286rem; font-size: 0.85714rem; font-weight: normal; font-style: italic; background: #f04124; color: white; }
 [data-abide] span.error, [data-abide] small.error { display: none; }
 
-span.error, small.error { display: block; padding: 0.42857rem 0.64286rem 0.64286rem; margin-top: -1px; margin-bottom: 1.14286rem; font-size: 0.85714rem; font-weight: normal; font-style: italic; background: #f04124; color: white; }
+span.error, small.error { display: block; padding: 0.42857rem 0.64286rem 0.64286rem; margin-top: -1px; margin-bottom: 0; font-size: 0.85714rem; font-weight: normal; font-style: italic;  color: #f04124; }
 
 .error input, .error textarea, .error select { margin-bottom: 0; }
 .error input[type="checkbox"], .error input[type="radio"] { margin-bottom: 1.14286rem; }
@@ -2800,7 +2800,7 @@ be set to display none.
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
   .sidebar, .page-navigation, .wp-prev-next, .respond-form, nav { display: none; } }
-input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea { background-color: white; font-family: inherit; border: 1px solid #cccccc; box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); color: rgba(0, 0, 0, 0.75); display: block; font-size: 1rem; margin: 0 0 1.14286rem 0; padding: 0.57143rem; height: 2.64286rem; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; transition: box-shadow 0.45s, border-color 0.45s ease-in-out; border-radius: 3px; }
+input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], textarea { background-color: white; font-family: inherit; border: 1px solid #cccccc; box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); color: rgba(0, 0, 0, 0.75); display: block; font-size: 1rem; margin: 0 0 0 0; padding: 0.57143rem; height: 2.64286rem; width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; transition: box-shadow 0.45s, border-color 0.45s ease-in-out; border-radius: 3px; }
 input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, textarea:focus { box-shadow: 0 0 5px #999999; border-color: #999999; }
 input[type="text"]:focus, input[type="password"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="month"]:focus, input[type="week"]:focus, input[type="email"]:focus, input[type="number"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, textarea:focus { background: #fafafa; border-color: #999999; outline: none; }
 input[type="text"][disabled], fieldset[disabled] input[type="text"], input[type="password"][disabled], fieldset[disabled] input[type="password"], input[type="date"][disabled], fieldset[disabled] input[type="date"], input[type="datetime"][disabled], fieldset[disabled] input[type="datetime"], input[type="datetime-local"][disabled], fieldset[disabled] input[type="datetime-local"], input[type="month"][disabled], fieldset[disabled] input[type="month"], input[type="week"][disabled], fieldset[disabled] input[type="week"], input[type="email"][disabled], fieldset[disabled] input[type="email"], input[type="number"][disabled], fieldset[disabled] input[type="number"], input[type="search"][disabled], fieldset[disabled] input[type="search"], input[type="tel"][disabled], fieldset[disabled] input[type="tel"], input[type="time"][disabled], fieldset[disabled] input[type="time"], input[type="url"][disabled], fieldset[disabled] input[type="url"], textarea[disabled], fieldset[disabled] textarea { background-color: #dddddd; }
@@ -2999,7 +2999,7 @@ span.error,.form_row span.error_message,span.message_error,span.message_error2{ 
 .hentry.error{color:#444;}
 .tev_error{background-color:#ffebe8;border-color:#c00;margin:5px 0 15px;padding:0 .6em;border-radius:3px;border-style:solid;border-width:1px;}
 div.tev_error p{margin:.5em 0;padding:2px;}
-.form_row .indicates,.form_row .required,.fields-set .required {color:red;}
+/* .form_row .indicates,.form_row .required,.fields-set .required {color:red;} */
 
 .form_row .description,.form_row span.message_note{display:block;clear:both;font-size:12px;line-height:normal; margin: 10px 0;}
 .form_row b{font-weight:400;vertical-align:middle;margin-left:6px;}
