@@ -21,6 +21,6 @@ class ResourcesController < ApplicationController
     private
 
     def resource_params
-        params.require(:resource).permit(:title,:slug,:allow_download,:auto_play,:excerpt,:description,:resource_type, :resource_url, :accepted_terms_and_conditions,:embed_code,:user_id,:status,:featured,:thumbnail_option,:source_file, category_ids: [])
+        params.require(:resource).permit(:title,:slug,:allow_download,:auto_play,:excerpt,:description,:resource_type, :resource_url, :accepted_terms_and_conditions,:embed_code,:user_id,:status,:featured,:thumbnail_option,:source_file,:source_thumbnail, category_ids: [])
     end
 end

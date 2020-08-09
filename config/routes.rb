@@ -2,5 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'home#index'
   resources :resources, only: [:new,:create]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # home page routes
+  get '/:category_slug', to: 'home#categories', constraints: CategoryConstraint.new, as: :category
+  get '/:video_slug', to: 'home#video', constraints: ResourceConstraint.new, as: :video
 end

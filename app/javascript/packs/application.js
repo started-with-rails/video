@@ -16,6 +16,7 @@ require("custom/fastclick.js")
 require("custom/scripts.js")
 require("custom/wp-embed.min.js")
 require("custom/owl.carousel.min.js")
+require("custom/custom.js")
 
 import 'controllers'
 

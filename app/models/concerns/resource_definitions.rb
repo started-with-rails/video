@@ -1,7 +1,8 @@
   module ResourceDefinitions
     extend ActiveSupport::Concern
     included do
-        has_and_belongs_to_many :categories
+        has_many :listings
+        has_many :categories, through: :listings
         belongs_to :user
         enum type: { source_file: "Upload File", video_url: "Video URL", embed_code: "Embed Code" }
         enum resource_thumbnail_option: { upload: "Upload feature Image", generate: "Generate video thumbnail" }
@@ -17,6 +18,7 @@
         validates_acceptance_of :accepted_terms_and_conditions, accept: "1", message: "You must accept the terms of service"
         validates_presence_of :categories
         after_save :set_source_thumbnail, if: proc { |obj| obj.thumbnail_option == 'generate' }
+        is_impressionable
 
         def set_source_thumbnail
           return unless source_file.attached? && !source_thumbnail.attached?
@@ -26,7 +28,7 @@
 
         def source_thumbnail_ext
           return unless source_thumbnail.attached?
-          unless source_thumbnail.byte_size <= 1.megabyte
+          unless source_thumbnail.byte_size <= 5.megabyte
             errors.add(:source_thumbnail, "is too big")
           end
           acceptable_types = ["image/jpeg", "image/png"]

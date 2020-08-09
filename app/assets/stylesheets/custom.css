@@ -5,6 +5,9 @@ body ul.vmgallery li { margin: 0 35px 35px 0; }
 body ul.vmgallery li:nth-child(4n+0) { margin-right: 0; }
 
 
+.owl-carousel .item-video {
+    height: 600px
+}
 
 .hidden {
     display: none;

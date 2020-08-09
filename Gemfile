@@ -26,6 +26,7 @@ gem 'friendly_id'
 gem 'simple_form'
 gem 'pry'
 gem 'image_processing'
+gem 'impressionist'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
