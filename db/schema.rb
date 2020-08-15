@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_09_141117) do
+ActiveRecord::Schema.define(version: 2020_08_15_065443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,12 +58,11 @@ ActiveRecord::Schema.define(version: 2020_08_09_141117) do
     t.index ["title"], name: "index_categories_on_title", unique: true
   end
 
-  create_table "categories_resources", id: false, force: :cascade do |t|
+  create_table "categories_video_items", id: false, force: :cascade do |t|
     t.bigint "category_id"
-    t.bigint "resource_id"
-    t.index ["category_id", "resource_id"], name: "index_categories_resources_on_category_id_and_resource_id"
-    t.index ["category_id"], name: "index_categories_resources_on_category_id"
-    t.index ["resource_id"], name: "index_categories_resources_on_resource_id"
+    t.bigint "video_item_id"
+    t.index ["category_id"], name: "index_categories_video_items_on_category_id"
+    t.index ["video_item_id"], name: "index_categories_video_items_on_video_item_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -103,34 +102,6 @@ ActiveRecord::Schema.define(version: 2020_08_09_141117) do
     t.index ["user_id"], name: "index_impressions_on_user_id"
   end
 
-  create_table "listings", force: :cascade do |t|
-    t.bigint "category_id"
-    t.bigint "resource_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["category_id"], name: "index_listings_on_category_id"
-    t.index ["resource_id"], name: "index_listings_on_resource_id"
-  end
-
-  create_table "resources", force: :cascade do |t|
-    t.string "title"
-    t.string "slug"
-    t.boolean "allow_download"
-    t.boolean "auto_play"
-    t.string "excerpt"
-    t.string "description"
-    t.string "resource_type"
-    t.text "embed_code"
-    t.string "resource_url"
-    t.integer "user_id"
-    t.boolean "status"
-    t.boolean "featured"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["slug"], name: "index_resources_on_slug", unique: true
-    t.index ["user_id"], name: "index_resources_on_user_id"
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -141,6 +112,25 @@ ActiveRecord::Schema.define(version: 2020_08_09_141117) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "video_items", force: :cascade do |t|
+    t.string "title"
+    t.string "slug"
+    t.boolean "allow_download"
+    t.boolean "auto_play"
+    t.string "excerpt"
+    t.string "description"
+    t.string "video_type"
+    t.text "embed_code"
+    t.string "video_url"
+    t.integer "user_id"
+    t.boolean "status", default: true
+    t.boolean "featured", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_video_items_on_slug", unique: true
+    t.index ["user_id"], name: "index_video_items_on_user_id"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

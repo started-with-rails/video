@@ -54,19 +54,11 @@
 							<h3 class="widget-title h2">Video Categories</h3>
 							<!-- Article start -->
 							<div class="row col4-thumb grid">
-                        <%@listings.each do |listing|%>
-								<div class="main-view clearfix">
-									<h6><%=link_to listing[0], category_url(category_slug: listing[1])%></h6>
-									<div class="view-img">
-										<a class="video_thumb" href="<%=video_url(video_slug: listing[2])%>" title="<%=listing[2]%>">
-											<%=image_tag listing_preview_image(listing[2])%>
-											<span class="video-overlay"><i class="fa fa-play-circle-o"></i></span> 
-                              			</a>
-									</div>
-									<div class="view-desc"> <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span><%=listing_views_count(listing[2])%></span></span> <cite class="fn"><i class="fa fa-clock-o"></i> <%=listing[3].strftime("%B %d, %Y")%></cite></span>
-									</div>
-								</div>
-                        <%end%>
+								  <%@categories.each do |category|%>
+									<% if category.video_items.any?%>
+										<%= render(VideoItemComponent.new(video: category.video_items.first, category: category))%>
+									<%end%>
+								  <%end%>
 							</div>
 							<!-- Article End -->
 						</div>
@@ -76,21 +68,7 @@
 							<h3 class="widget-title h2">Latest Videos</h3>
 							<!-- Article start -->
 							<div class="row col4-thumb grid">
-								<%@latest_videos.each do |video|%>
-								<div class="main-view clearfix">
-									<div class="view-img">
-										<a class="video_thumb" href="<%=video_url(video_slug: video.slug)%>"  title="<%=video.title%>">	
-										<%=image_tag video_preview_image(video)%> 
-										<span class="video-overlay"><i class="fa fa-play-circle-o"></i></span> </a>
-										<div class="time_overlay"></div>
-									</div>
-									<div class="view-desc">
-										<h6>
-										<%=link_to video.try(:title), video_url(video_slug: video.slug)%>
-									
-										</h6> <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span><%=video_views_count(video)%></span></span> <cite class="fn"><i class="fa fa-clock-o"></i> <%=video_created_time(video)%></cite> </div>
-								</div>
-								<%end%>
+								<%= render(VideoItemComponent.with_collection(@latest_videos)) %>
 							</div>
 							<!-- Article End -->
 						</div>
@@ -110,21 +88,11 @@
 				<div class="widget-wrap widget-inside">
 					<h3 class="widget-title h2">Popular Videos</h3>
 					<ul class="grid row">
-						<%@latest_videos.each do |video|%>
-						<li class="main-view clearfix">
-							<div class="view-img">
-								<a href="<%=video_url(video_slug: video.slug)%>">
-								<%=image_tag video_preview_image(video), :class =>"thumb-img"%> 
-							 <span class="video-overlay"><i class="fa fa-play-circle-o"></i></span> </a>
-							</div>
-							<div class="view-desc">
-								<h6><%=link_to video.try(:title), video_url(video_slug: video.slug)%></h6> 
-								<span class="byline">
-                                    <span class="disabled-btn"><i class="step fa fa-eye"></i> <span><%=video_views_count(video)%></span></span> <cite class="fn"><i class="fa fa-clock-o"></i> <%=video_created_time(video)%></cite> </span>
-							</div>
-						</li>
+						<%= render(VideoItemComponent.with_collection(@latest_videos))  do |component|%>
+						 <% component.slot(:list) do %>
+							this is list
+						<% end %>
 						<%end%>
-						
 					</ul>
 				</div>
 			</div>
@@ -133,11 +101,7 @@
 					<h3 class="widget-title h2">Categories</h3>
 					<div class="menu-video-container">
 						<ul id="menu-video" class="menu">
-							<%@categories.each do |category|%>
-							<li id="menu-item-2655" class="menu-item">
-							<%=link_to category.title, category_url(category_slug: category.slug)%>
-							</li>
-							<%end%>
+							<%= render(CategoryComponent.with_collection(@categories)) %>
 						</ul>
 					</div>
 				</div>

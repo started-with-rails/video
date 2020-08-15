@@ -1,16 +1,7 @@
 module HomeHelper
-    def video_preview_image(video,size=nil)
-        ThumbnailGenerateService.new(video,size).call
-    end
-
-    def listing_preview_image(slug)
-        resource = Resource.find_by_slug(slug)
-        video_preview_image(resource)
-    end
-
-    def listing_views_count(slug)
-        resource = Resource.find_by_slug(slug)
-        video_views_count(resource)
+    
+    def video_preview_image(video)
+        ThumbnailGenerateService.new(video).call
     end
 
     def video_views_count(video)
@@ -19,6 +10,11 @@ module HomeHelper
 
     def video_created_time(video)
         video.created_at.strftime("%B %d, %Y")
+    end
+
+    def get_tab_status(label,tab=nil)
+        return (label == 'latest' && tab.nil?) ? 'active' : ''
+        label == tab ? 'active' : ''
     end
 
     def default_image

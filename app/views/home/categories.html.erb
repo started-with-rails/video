@@ -3,17 +3,20 @@
         <div id="main" class="large-9 medium-12 columns first clearfix" role="main">
             <ul class="breadcrumbs hide-for-xsmall-only show-for-medium-up">
                 <span class="trail-begin">
-                <li><a href="https://demo.templatic.com/video" title="Video" rel="home" class="trail-begin">Home</a></li>
+                    <li><a href="/" title="Video" rel="home" class="trail-begin">Home</a></li>
                 </span>
-                <li><a href="https://demo.templatic.com/video/videoscategory/videos/" title="Videos">Videos</a></li>
-                <span class="trail-end">Travel</span>
+                <%@breadcrumbs.each do |breadcrumb|%>
+                    <%if breadcrumb[:path].present? %>
+                        <li><%=link_to breadcrumb[:label], breadcrumb[:path]%></li>
+                    <%else%>
+                        <span class="trail-end"><%=breadcrumb[:label]%></span>
+                    <%end%>
+                <%end%>
             </ul>
             <!-- Start header-->
             <header>
-                <h1 class="archive-title">Travel</h1>
-                <p>
-                <p>This is a <strong>category description</strong> of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from <em>Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit</em>.</p>
-                </p>		
+                <h1 class="archive-title"><%=@category.try(:title)%></h1>
+                <p><%=@category.try(:description)%></p>		
             </header>
             <!-- End header-->
             <article class="row">
@@ -30,174 +33,15 @@
                     </div>
                     <!-- #End-->
                     <!-- Tabs start -->
-                    <dd class="active"><a href="https://demo.templatic.com/video/videoscategory/travel/">Latest</a></dd>
-                    <dd class=""><a href="https://demo.templatic.com/video/videoscategory/travel/?most_viewed=videos">Most Viewed</a></dd>
-                    <dd class=""><a href="https://demo.templatic.com/video/videoscategory/travel/?most_rated=videos">Most Commented</a></dd>
+                    <dd class="<%=get_tab_status('latest',params[:tab])%>"><a href="https://demo.templatic.com/video/videoscategory/travel/">Latest</a></dd>
+                    <dd class="<%=get_tab_status('most_viewed',params[:tab])%>"><a href="https://demo.templatic.com/video/videoscategory/travel/?most_viewed=videos">Most Viewed</a></dd>
+                    <dd class="<%=get_tab_status('most_rated',params[:tab])%>"><a href="https://demo.templatic.com/video/videoscategory/travel/?most_rated=videos">Most Commented</a></dd>
                     <!-- Tabs #End-->
                 </dl>
                 <!-- Tab start -->
                 <div id="video-cat-content" class="tabs-content row grid">
                     <div class="content thumbnails active" id="most_video_view">
-                        <div class="main-view clearfix">
-                            <div class="hover-overlay">
-                            <div class="view-img">
-                                <a href="https://demo.templatic.com/video/videos/miley-cyrus-the-climb/"><img data-interchange="[https://demo.templatic.com/video/wp-content/uploads/sites/33/2014/04/down-the-nile-278x200.jpg, (default)], [https://demo.templatic.com/video/wp-content/uploads/sites/33/2014/04/down-the-nile-556x400.jpg, (retina)]" class="thumb-img" /><span class="video-overlay"><i class="fa fa-play-circle-o"></i></span></a>
-                                <div class="time_overlay">00:00</div>
-                            </div>
-                            <!-- Show video meta -->
-                            <div class='view-desc'>
-                                <h6><a href="https://demo.templatic.com/video/videos/miley-cyrus-the-climb/">Down the Nile</a></h6>
-                                <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span>1243</span></span><cite class="fn"><i class="fa fa-clock-o"></i> August 18, 2017</cite></span>
-                                <p class="clearfix">
-                                <p>The Climb is the brand new hit single from Miley Cyrus available on Hannah Montana: The Movie Soundtrack in stores March 24! Hannah Montana: The Movie only in Theaters April 10.</p>
-                                </p>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="main-view clearfix">
-                            <div class="hover-overlay">
-                            <div class="view-img">
-                                <a href="https://demo.templatic.com/video/videos/miley-cyrus-cant-be-tamed/"><img data-interchange="[https://demo.templatic.com/video/wp-content/uploads/sites/33/2014/04/toronto-vacation-travel-guide-278x200.jpg, (default)], [https://demo.templatic.com/video/wp-content/uploads/sites/33/2014/04/toronto-vacation-travel-guide-556x400.jpg, (retina)]" class="thumb-img" /><span class="video-overlay"><i class="fa fa-play-circle-o"></i></span></a>
-                                <div class="time_overlay"></div>
-                            </div>
-                            <!-- Show video meta -->
-                            <div class='view-desc'>
-                                <h6><a href="https://demo.templatic.com/video/videos/miley-cyrus-cant-be-tamed/">Toronto Vacation Travel Guide</a></h6>
-                                <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span>1937419</span></span><cite class="fn"><i class="fa fa-clock-o"></i> August 18, 2017</cite></span>
-                                <p class="clearfix">
-                                <p>The official music video from Miley Cyrus performing Cant be tamed.</p>
-                                </p>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="main-view clearfix">
-                            <div class="hover-overlay">
-                            <div class="view-img">
-                                <a href="https://demo.templatic.com/video/videos/when-i-look-at-you/"><img src="https://img.youtube.com/vi/8TJdP1Uf9x8/maxresdefault.jpg" class="thumb-img" /><span class="video-overlay"><i class="fa fa-play-circle-o"></i></span></a>
-                                <div class="time_overlay"></div>
-                            </div>
-                            <!-- Show video meta -->
-                            <div class='view-desc'>
-                                <h6><a href="https://demo.templatic.com/video/videos/when-i-look-at-you/">Japan travel guide</a></h6>
-                                <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span>712958</span></span><cite class="fn"><i class="fa fa-clock-o"></i> August 18, 2017</cite></span>
-                                <p class="clearfix">
-                                <p>Music video by Miley Cyrus performing When I Look At You</p>
-                                </p>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="main-view clearfix">
-                            <div class="hover-overlay">
-                            <div class="view-img">
-                                <a href="https://demo.templatic.com/video/videos/selena-gomez-the-scene-round-round/"><img src="https://img.youtube.com/vi/1fLb7fXmYtc/maxresdefault.jpg" class="thumb-img" /><span class="video-overlay"><i class="fa fa-play-circle-o"></i></span></a>
-                                <div class="time_overlay"></div>
-                            </div>
-                            <!-- Show video meta -->
-                            <div class='view-desc'>
-                                <h6><a href="https://demo.templatic.com/video/videos/selena-gomez-the-scene-round-round/">Hong Kong Vacation Travel Guide</a></h6>
-                                <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span>791343</span></span><cite class="fn"><i class="fa fa-clock-o"></i> August 18, 2017</cite></span>
-                                <p class="clearfix">
-                                <p>Selena Gomezs brand new album A Year Without Rain is available now</p>
-                                </p>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="main-view clearfix">
-                            <div class="hover-overlay">
-                            <div class="view-img">
-                                <a href="https://demo.templatic.com/video/videos/tron-legacy-trailer-2-hq-1080p/"><img src="https://img.youtube.com/vi/nqhE--ZFciM/maxresdefault.jpg" class="thumb-img" /><span class="video-overlay"><i class="fa fa-play-circle-o"></i></span></a>
-                                <div class="time_overlay"></div>
-                            </div>
-                            <!-- Show video meta -->
-                            <div class='view-desc'>
-                                <h6><a href="https://demo.templatic.com/video/videos/tron-legacy-trailer-2-hq-1080p/">Aqueous Transmission</a></h6>
-                                <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span>88272</span></span><cite class="fn"><i class="fa fa-clock-o"></i> August 18, 2017</cite></span>
-                                <p class="clearfix">
-                                <p>TRON LEGACY coming to theaters 2010 in Disney Digital 3D.</p>
-                                </p>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="main-view clearfix">
-                            <div class="hover-overlay">
-                            <div class="view-img">
-                                <a href="https://demo.templatic.com/video/videos/iron-man-2-trailer-2-official/"><img data-interchange="[https://demo.templatic.com/video/wp-content/uploads/sites/33/2014/04/48h-in-new-york-city-278x200.jpg, (default)], [https://demo.templatic.com/video/wp-content/uploads/sites/33/2014/04/48h-in-new-york-city-556x400.jpg, (retina)]" class="thumb-img" /><span class="video-overlay"><i class="fa fa-play-circle-o"></i></span></a>
-                                <div class="time_overlay">00:00</div>
-                            </div>
-                            <!-- Show video meta -->
-                            <div class='view-desc'>
-                                <h6><a href="https://demo.templatic.com/video/videos/iron-man-2-trailer-2-official/">48h in New-York City</a></h6>
-                                <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span>1409</span></span><cite class="fn"><i class="fa fa-clock-o"></i> August 18, 2017</cite></span>
-                                <p class="clearfix">
-                                <p>You wanted more &#8220;Iron Man 2&#8221; You got it! Feast your eyes on the second official Iron Man 2 trailer! Watch it now!</p>
-                                </p>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="main-view clearfix">
-                            <div class="hover-overlay">
-                            <div class="view-img">
-                                <a href="https://demo.templatic.com/video/videos/star-wars-the-clone-wars/"><img src="https://img.youtube.com/vi/PA2BavUzzrk/maxresdefault.jpg" class="thumb-img" /><span class="video-overlay"><i class="fa fa-play-circle-o"></i></span></a>
-                                <div class="time_overlay"></div>
-                            </div>
-                            <!-- Show video meta -->
-                            <div class='view-desc'>
-                                <h6><a href="https://demo.templatic.com/video/videos/star-wars-the-clone-wars/">West Coast Trip &#8211; San Francisco, Los Angeles, Malibu, Anaheim, San Diego, Las Vegas &#038; Grand Canyon</a></h6>
-                                <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span>352423</span></span><cite class="fn"><i class="fa fa-clock-o"></i> August 18, 2017</cite></span>
-                                <p class="clearfix">
-                                <p>From Darth Mauls brother to Asajj Ventress origins, we analyze the new revelations.</p>
-                                </p>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="main-view clearfix">
-                            <div class="hover-overlay">
-                            <div class="view-img">
-                                <a href="https://demo.templatic.com/video/videos/vanessa-hudgens-say-ok-music-video-official-with-zac-efron/"><img src="https://img.youtube.com/vi/ka-ZgwCXKho/maxresdefault.jpg" class="thumb-img" /><span class="video-overlay"><i class="fa fa-play-circle-o"></i></span></a>
-                                <div class="time_overlay"></div>
-                            </div>
-                            <!-- Show video meta -->
-                            <div class='view-desc'>
-                                <h6><a href="https://demo.templatic.com/video/videos/vanessa-hudgens-say-ok-music-video-official-with-zac-efron/">Venice Vacation Travel Guide</a></h6>
-                                <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span>3598205</span></span><cite class="fn"><i class="fa fa-clock-o"></i> August 18, 2017</cite></span>
-                                <p class="clearfix">
-                                <p>Say Ok is the second single from High School Musicals own Vanessa Hudgens. Her debut album V is in stores now and features the hit single &#8220;Come Back To Me&#8221;.</p>
-                                </p>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="main-view clearfix">
-                            <div class="hover-overlay">
-                            <div class="view-img">
-                                <a href="https://demo.templatic.com/video/videos/the-twilight-saga-eclipse-official-full-trailer-hd/"><img data-interchange="[https://demo.templatic.com/video/wp-content/uploads/sites/33/2017/11/travel-love-278x200.jpg, (default)], [https://demo.templatic.com/video/wp-content/uploads/sites/33/2017/11/travel-love-556x400.jpg, (retina)]" class="thumb-img" /><span class="video-overlay"><i class="fa fa-play-circle-o"></i></span></a>
-                                <div class="time_overlay"></div>
-                            </div>
-                            <!-- Show video meta -->
-                            <div class='view-desc'>
-                                <h6><a href="https://demo.templatic.com/video/videos/the-twilight-saga-eclipse-official-full-trailer-hd/">Travel Love</a></h6>
-                                <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span>0 </span></span><cite class="fn"><i class="fa fa-clock-o"></i> August 18, 2017</cite></span>
-                                <p class="clearfix">
-                                <p>The Twilight Saga: Eclipse Full Trailer is finally online! Check it out and make sure to Subscribe to our channel for all the latest Twilight News.</p>
-                                </p>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="main-view clearfix">
-                            <div class="hover-overlay">
-                            <div class="view-img">
-                                <a href="https://demo.templatic.com/video/videos/facts-that-will-make-you-want-to-travel/"><img src="https://img.youtube.com/vi/wDqhQU2MbIg/maxresdefault.jpg" class="thumb-img" /><span class="video-overlay"><i class="fa fa-play-circle-o"></i></span></a>
-                                <div class="time_overlay"></div>
-                            </div>
-                            <!-- Show video meta -->
-                            <div class='view-desc'>
-                                <h6><a href="https://demo.templatic.com/video/videos/facts-that-will-make-you-want-to-travel/">Facts That Will Make You Want To Travel</a></h6>
-                                <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span>9315</span></span><cite class="fn"><i class="fa fa-clock-o"></i> August 18, 2017</cite></span>
-                                <p class="clearfix">
-                                <p>This is your video description section where you can explain this video in brief. This section can be edited easily from Dashboard&gt;&gt; Video&gt;&gt; Edit. WordPress provides a visual editor to enter this description with a lot of formatting options, You can highlight important content with Bold, Italic, Underline options, you can also use ordered and&#8230; <a href="https://demo.templatic.com/video/videos/facts-that-will-make-you-want-to-travel/" class="read-more-link" >Read more &raquo; </a></p>
-                                </p>
-                            </div>
-                            </div>
-                        </div>
+                    <%= render(VideoItemComponent.with_collection(@latest_videos)) %>
                     </div>
                 </div>
                 <!-- eND .COLUMNS-->
@@ -211,17 +55,6 @@
                     <h3 class="widget-title h2">Categories</h3>
                     <ul>
                         <li class="cat-item cat-item-18"><a href="https://demo.templatic.com/video/videoscategory/animation-videos/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Animation</a> (10)</li>
-                        <li class="cat-item cat-item-234"><a href="https://demo.templatic.com/video/videoscategory/art/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Art</a> (11)</li>
-                        <li class="cat-item cat-item-15"><a href="https://demo.templatic.com/video/videoscategory/education/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Education</a> (6)</li>
-                        <li class="cat-item cat-item-236"><a href="https://demo.templatic.com/video/videoscategory/health/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Health</a> (12)</li>
-                        <li class="cat-item cat-item-232"><a href="https://demo.templatic.com/video/videoscategory/life/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Life</a> (10)</li>
-                        <li class="cat-item cat-item-233"><a href="https://demo.templatic.com/video/videoscategory/nature/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Nature</a> (5)</li>
-                        <li class="cat-item cat-item-19"><a href="https://demo.templatic.com/video/videoscategory/others/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Others</a> (18)</li>
-                        <li class="cat-item cat-item-235"><a href="https://demo.templatic.com/video/videoscategory/science/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Science</a> (9)</li>
-                        <li class="cat-item cat-item-14"><a href="https://demo.templatic.com/video/videoscategory/sports/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Sports</a> (12)</li>
-                        <li class="cat-item cat-item-241"><a href="https://demo.templatic.com/video/videoscategory/technology/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Technology</a> (12)</li>
-                        <li class="cat-item cat-item-16 current-cat"><a aria-current="page" href="https://demo.templatic.com/video/videoscategory/travel/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Travel</a> (10)</li>
-                        <li class="cat-item cat-item-196 current-cat-parent current-cat-ancestor"><a href="https://demo.templatic.com/video/videoscategory/videos/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Videos</a> (57)</li>
                     </ul>
                 </div>
                 </div>

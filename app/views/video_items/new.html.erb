@@ -1,4 +1,4 @@
-<div id="content" data-controller="resources">
+<div id="content" data-controller="videos">
    <div id="inner-content" class="row clearfix">
       <div id="main" class="large-9 medium-12 columns" role="main">
          <ul class="breadcrumbs hide-for-xsmall-only show-for-medium-up">
@@ -14,7 +14,7 @@
             <!-- end article header -->
             <section class="entry-content clearfix" itemprop="articleBody">
                <p>This is your video submission form from where users will be able to add their video listings on your website.</p>
-               <%= simple_form_for @resource do |f| %>
+               <%= simple_form_for @video do |f| %>
                 <div class="accordion" id="post-listing" >
                      <div id="step-post" class="accordion-navigation step-wrapper step-post">
                         <a class="step_enter_detail step-heading submit-video active" href="#"><span>1</span><span>Enter Details</span><span></span></a>
@@ -24,19 +24,19 @@
 
                                
 
-                                    <%= f.input :resource_type,     as: :select, collection: Resource.types , prompt: "Select Video Type",label_method: :second, value_method: :first, input_html: { data: { action: "resources#set_video_input_type", target: "resources.type" } } %>                                        
+                                    <%= f.input :video_type,     as: :select, collection: VideoItem.types , prompt: "Select Video Type",label_method: :second, value_method: :first, input_html: { data: { action: "videos#set_video_input_type", target: "videos.type" } } %>                                        
                               </div>
 
                               
-                                 <div class='fields-set hidden'  data-target="resources.url" >			
-                                    <%= f.input :resource_url %>
+                                 <div class='fields-set hidden'  data-target="videos.url" >			
+                                    <%= f.input :video_url %>
                                  </div>
 
-                                   <div class='fields-set hidden'  data-target="resources.file" >			
-                                    <%= f.input :source_file , as: :file %>
+                                   <div class='fields-set hidden'  data-target="videos.file" >			
+                                    <%= f.input :video_file , as: :file %>
                                  </div>
 
-                                 <div class='fields-set hidden' data-target="resources.embed_code">			
+                                 <div class='fields-set hidden' data-target="videos.embed_code">			
                                     <%= f.input :embed_code, as: :text %>
                                  </div>
 
@@ -53,11 +53,11 @@
                             
                               <div id="div_video_thumbnail_option" >
                                  <div class="fields-set">
-                                   <%= f.input :thumbnail_option,  as: :select,prompt: "Select Thumbnail Type", collection: Resource.resource_thumbnail_options ,label_method: :second, value_method: :first, input_html: { data: { action: "resources#set_video_thumbnail_type", target: "resources.thumbnail_option" } } %> 
+                                   <%= f.input :thumbnail_option,  as: :select,prompt: "Select Thumbnail Type", collection: VideoItem.video_thumbnail_options ,label_method: :second, value_method: :first, input_html: { data: { action: "videos#set_video_thumbnail_type", target: "videos.thumbnail_option" } } %> 
                                  </div>
                               </div>
-                              <div class="fields-set hidden" data-target="resources.thumbnail">
-                                 <%= f.input :source_thumbnail , as: :file %>
+                              <div class="fields-set hidden" data-target="videos.thumbnail">
+                                 <%= f.input :video_thumbnail , as: :file %>
                               </div>
                               <div class='fields-set'>      
                                      <%= f.association :categories %>

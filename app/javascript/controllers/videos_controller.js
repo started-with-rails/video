@@ -29,7 +29,7 @@ export default class extends Controller {
         case 'embed_code':
             this.embed_codeTarget.classList.toggle("hidden", false)
           break;
-        case 'source_file':
+        case 'video_file':
             this.fileTarget.classList.toggle("hidden", false)
           break;  
         default:

@@ -1,0 +1,21 @@
+<<%=html_ele%> class="main-view clearfix">
+
+    <% unless  category == :nil %>
+     <h6><%=link_to category_title, category_url(category_slug: category_slug)%></h6>
+    <%end%>
+
+    <div class="view-img">
+        <a class="video_thumb" href="<%=video_url(video_slug: slug)%>" title="<%=slug%>">
+            <%=image_tag video_preview_image,  :class => "thumb-img"%>
+            <span class="video-overlay"><i class="fa fa-play-circle-o"></i></span> 
+                <% if !list %>
+                    <div class="time_overlay">00:00</div>
+                <%end%>
+        </a>
+    </div>
+        <!-- Show video meta -->
+    <div class='view-desc'>
+        <h6><a href=""><%=title%></a></h6>
+        <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span><%=video_views_count%></span></span><cite class="fn"><i class="fa fa-clock-o"></i> <%=created_date%></cite></span>
+    </div>
+</<%=html_ele%> >

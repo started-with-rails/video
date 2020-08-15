@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    include BreadCrumbs
     before_action :set_action_cable_identifier
     private
 

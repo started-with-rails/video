@@ -2847,8 +2847,8 @@ header .top-nav .sub-nav li a:hover { background-color: #e10d0d; }
 
 #searchform, .searchform { position: relative; max-width: 320px; }
 
-#searchsubmit, .searchsubmit { bottom: 0; margin: 0; position: absolute; right: 0; text-indent: -9999px; background-image: url(../images/search-icon.png); background-repeat: no-repeat; background-position: center center; background-color: transparent !important; border: none !important; box-shadow: none !important; -webkit-box-shadow: none !important; }
-#searchsubmit:focus, #searchsubmit:hover, .searchsubmit:focus, .searchsubmit:hover { background-image: url(../images/search-icon.png); background-repeat: no-repeat; background-position: center center; background-color: transparent !important; }
+#searchsubmit, .searchsubmit { bottom: 0; margin: 0; position: absolute; right: 0; text-indent: -9999px; background-image: url("search-icon.png"); background-repeat: no-repeat; background-position: center center; background-color: transparent !important; border: none !important; box-shadow: none !important; -webkit-box-shadow: none !important; }
+#searchsubmit:focus, #searchsubmit:hover, .searchsubmit:focus, .searchsubmit:hover { background-image: url("search-icon.png"); background-repeat: no-repeat; background-position: center center; background-color: transparent !important; }
 
 .content.thumbnails { margin-top: 20px; }
 

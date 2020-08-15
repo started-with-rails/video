@@ -3,11 +3,15 @@
                   <div id="main" class="large-9 medium-12 columns first clearfix" role="main">
                      <ul class="breadcrumbs hide-for-xsmall-only show-for-medium-up">
                         <span class="trail-begin">
-                           <li><a href="https://demo.templatic.com/video" title="Video" rel="home" class="trail-begin">Home</a></li>
+                           <li><a href="/" title="Video" rel="home" class="trail-begin">Home</a></li>
                         </span>
-                        <li><a href="https://demo.templatic.com/video/videos/" title="Video">Video</a></li>
-                        <li><a href="https://demo.templatic.com/video/videoscategory/travel/" title="Travel">Travel</a></li>
-                        <span class="trail-end">Down the Nile</span>
+                        <%@breadcrumbs.each do |breadcrumb|%>
+                           <%if breadcrumb[:path].present? %>
+                                 <li><%=link_to breadcrumb[:label], breadcrumb[:path]%></li>
+                           <%else%>
+                                 <span class="trail-end"><%=breadcrumb[:label]%></span>
+                           <%end%>
+                        <%end%>
                      </ul>
                      <!-- display video -->	
                      <!-- display video end -->
