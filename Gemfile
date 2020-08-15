@@ -28,6 +28,7 @@ gem 'pry'
 gem 'image_processing'
 gem 'impressionist'
 gem "view_component"
+gem 'sidekiq'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

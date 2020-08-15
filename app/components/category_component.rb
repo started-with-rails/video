@@ -1,16 +1,14 @@
 class CategoryComponent < ViewComponent::Base
+    extend Forwardable
     with_collection_parameter :category
     attr_reader :category
+    delegate [:title,:slug] => :@category
 
     def initialize(category:)
       @category = category
     end
 
-    def title
-        category.title
-    end
-
-    def slug
-        category.slug
+    def videos_count
+        category.video_items.count
     end
 end

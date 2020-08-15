@@ -1,0 +1,9 @@
+
+<% case video_type %>
+<% when 'video_file' %>
+    <%= video_tag(url_for(video_file), controls: true, autobuffer: true, height: '500', width: '700', id: "videoPlayer#{slug}") %>
+<%  when 'video_url' %>
+    <iframe align="center" height="500" name="window" src="<%= video_url %>" width="700"></iframe>
+<%  when 'embed_code'%>
+    <%=embed_code.html_safe%>
+<% end %>

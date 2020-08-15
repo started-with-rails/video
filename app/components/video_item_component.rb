@@ -1,20 +1,14 @@
 class VideoItemComponent < ViewComponent::Base
     with_collection_parameter :video
     include ViewComponent::Slotable
+    extend Forwardable
+    delegate [:title,:slug,:video_type] => :@video
     with_slot  :list
     attr_reader :video, :category
 
     def initialize(video:, category: :nil)
       @video = video
       @category = category
-    end
-
-    def slug
-        video.try(:slug)
-    end
-
-    def title
-        video.try(:title)
     end
 
     def video_views_count
@@ -26,7 +20,14 @@ class VideoItemComponent < ViewComponent::Base
     end
 
     def video_preview_image
-        ThumbnailGenerateService.new(video).call
+        case video_type
+        when 'embed_code'
+         EmbedCodeThumbGenerateService.new(video).call
+        when 'video_url','video_file'
+         ThumbnailGenerateService.new(video).call
+        else
+          "missing.jpg" 
+        end
     end
 
     def category_title

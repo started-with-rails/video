@@ -1,7 +1,7 @@
 module HomeHelper
     
     def video_preview_image(video)
-        ThumbnailGenerateService.new(video).call
+        EmbedCodeThumbGenerateService.new(video).call
     end
 
     def video_views_count(video)

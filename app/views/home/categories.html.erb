@@ -1,18 +1,7 @@
   <div id="content">
     <div id="inner-content" class="row clearfix">
         <div id="main" class="large-9 medium-12 columns first clearfix" role="main">
-            <ul class="breadcrumbs hide-for-xsmall-only show-for-medium-up">
-                <span class="trail-begin">
-                    <li><a href="/" title="Video" rel="home" class="trail-begin">Home</a></li>
-                </span>
-                <%@breadcrumbs.each do |breadcrumb|%>
-                    <%if breadcrumb[:path].present? %>
-                        <li><%=link_to breadcrumb[:label], breadcrumb[:path]%></li>
-                    <%else%>
-                        <span class="trail-end"><%=breadcrumb[:label]%></span>
-                    <%end%>
-                <%end%>
-            </ul>
+            <%= render(BreadCrumbComponent.new(breadcrumbs: @breadcrumbs)) %>
             <!-- Start header-->
             <header>
                 <h1 class="archive-title"><%=@category.try(:title)%></h1>
@@ -54,7 +43,7 @@
                 <div class="widget-wrap widget-inside">
                     <h3 class="widget-title h2">Categories</h3>
                     <ul>
-                        <li class="cat-item cat-item-18"><a href="https://demo.templatic.com/video/videoscategory/animation-videos/" title="This is a category description of your Video category, you can use this section to explain what kind of videos will be published under this category. You can edit this section easily from Dashboard&gt;&gt; Video&gt;&gt; Category&gt;&gt;Edit.">Animation</a> (10)</li>
+                        <%= render(CategoryComponent.with_collection(@categories)) %>
                     </ul>
                 </div>
                 </div>

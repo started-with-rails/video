@@ -1,0 +1,12 @@
+ <ul class="breadcrumbs hide-for-xsmall-only show-for-medium-up">
+    <span class="trail-begin">
+        <li><a href="/" title="Video" rel="home" class="trail-begin">Home</a></li>
+    </span>
+    <%@breadcrumbs.each do |breadcrumb|%>
+        <%if breadcrumb[:path].present? %>
+                <li><%=link_to breadcrumb[:label], breadcrumb[:path]%></li>
+        <%else%>
+                <span class="trail-end"><%=breadcrumb[:label]%></span>
+        <%end%>
+    <%end%>
+</ul>

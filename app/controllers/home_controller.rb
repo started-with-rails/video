@@ -1,11 +1,12 @@
 class HomeController < ApplicationController
   before_action :add_videos_breadcrumb_path, only: [:categories, :video]
   before_action :set_category, only: [:categories, :video]
+  before_action :set_categories
   
   def index
     @banner_videos = VideoItem.banner_videos
     @latest_videos = VideoItem.latest_videos
-    @categories = Category.include_video_items_with_attachments.show_in_home.order_by_position
+   
   end
 
   def categories
@@ -42,6 +43,10 @@ class HomeController < ApplicationController
       @video ||= VideoItem.find_by_slug(params[:video_slug])
       @category ||=  @video.categories.first
     end
+  end
+
+  def set_categories
+    @categories = Category.include_video_items_with_attachments.show_in_home.order_by_position
   end
 
   # def cache_generate(key,value)
