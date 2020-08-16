@@ -15,6 +15,7 @@ class HomeController < ApplicationController
   end
 
   def video
+    @similar_videos = VideoItem.latest_videos
     add_breadcrumb(@category.try(:title),category_url(category_slug: @category.try(:slug)))
     add_breadcrumb(@video.try(:title))
     # impressionist(@video)
