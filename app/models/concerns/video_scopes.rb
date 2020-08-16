@@ -8,22 +8,18 @@ module VideoScopes
         scope :source_videos, -> { where(video_type: 'source_file') }
         scope :url_videos, -> { where(video_type: 'video_url') }
 
-        scope :latest_videos, -> { featured.recent}
-        scope :popular_videos, -> { }
-        scope :similar_video, -> (category) do
-            
+        scope :latest_videos, -> {  with_attachments.featured.recent}
+        scope :popular_videos, -> { with_attachments.order(:cached_weighted_average => :desc) }
+        
+        scope :similar_categories_videos, -> (video) do
+            joins(:categories).where(categories: { id: video.category_ids.uniq }).recent.distinct.with_attachments.limit(6)
         end
 
         scope :banner_videos, -> do
-            latest_videos.embed_videos
+            with_attachments.latest_videos.embed_videos
         end
 
         scope :with_attachments, -> { includes(video_file_attachment: :blob, video_thumbnail_attachment: :blob) }
-        
-
-        has_one :most_recent_listing, -> do
-            merge(Listing.most_recent_by_video)
-          end, class_name: "Listing", inverse_of: :video
 
     end
 end

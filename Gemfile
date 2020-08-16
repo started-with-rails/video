@@ -29,6 +29,7 @@ gem 'image_processing'
 gem 'impressionist'
 gem "view_component"
 gem 'sidekiq'
+gem 'acts_as_votable'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -61,6 +62,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "stimulus_reflex", "~> 3.2"
-
-gem "optimism", "~> 0.3.5"
+gem "stimulus_reflex", "~> 3.3.0.pre2"

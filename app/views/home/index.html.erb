@@ -88,7 +88,7 @@
 				<div class="widget-wrap widget-inside">
 					<h3 class="widget-title h2">Popular Videos</h3>
 					<ul class="grid row">
-						<%= render(VideoItemComponent.with_collection(@latest_videos))  do |component|%>
+						<%= render(VideoItemComponent.with_collection(@popular_videos))  do |component|%>
 						 <% component.slot(:list) do %>
 							this is list
 						<% end %>

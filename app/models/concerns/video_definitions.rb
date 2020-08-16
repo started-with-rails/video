@@ -18,6 +18,7 @@
         validates_presence_of :categories
         after_save :set_video_thumbnail, if: proc { |obj| obj.thumbnail_option == 'generate' }
         is_impressionable
+        acts_as_votable cacheable_strategy: :update_columns
 
         def set_video_thumbnail
           return if video_thumbnail.attached?

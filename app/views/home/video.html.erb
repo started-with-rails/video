@@ -21,8 +21,8 @@
                <span itemprop="author"  class="author">
                <a href="#" title="Posts by <%=@video.user.email%> " rel="author"><%=@video.user.email%> </a></span> on 
                <time class="updated" datetime="<%=video_created_time(@video)%>"><%=video_created_time(@video)%></time> in
-               <%@video.categories.each_with_index do  |category,index|%>
-                  <%seprator = index == (@video.categories.size.to_i - 1) ? '' : ','%>
+               <%@video.categories.uniq.each_with_index do  |category,index|%>
+                  <%seprator = index == (@video.categories.uniq.size.to_i - 1) ? '' : ','%>
                   <%=link_to "#{category.title}#{seprator}", category_url(category_slug: category.slug)%>
                <%end%> 
               </p>
@@ -33,12 +33,7 @@
          <!-- Show views and share button -->
          <article class="row meta-transparent-buttons">
             <div class="medium-5 small-12 columns">
-               <ul class="button-group">
-                  <li><a class="button" href="#respond"><i class="step fa fa-comment"></i><span>0</span></a></li>
-                  <li><a class="button" href="#respond"><i class="step fa fa-thumbs-up"></i><span>0</span></a></li>
-                  <li><a class="button" href="#respond"><i class="step fa fa-thumbs-down"></i><span>0</span></a></li>
-                  <li class="disabled-btn"><i class="step fa fa-eye"></i><span><span><%=video_views_count(@video)%></span> Views</span></li>
-               </ul>
+               <%=  render partial: "votes", locals: {video: @video} %>
             </div>
             <!-- Social media share buttons -->
             <%= render 'social_share_button' %>

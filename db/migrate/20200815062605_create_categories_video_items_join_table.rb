@@ -4,8 +4,6 @@ class CreateCategoriesVideoItemsJoinTable < ActiveRecord::Migration[6.0]
       t.bigint :category_id
       t.bigint :video_item_id
     end
- 
-    add_index :categories_video_items, :category_id
-    add_index :categories_video_items, :video_item_id
+    add_index :categories_video_items, [:category_id, :video_item_id], :unique => true
   end
 end
