@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :video_items, only: [:new,:create]
 
   resources :video_items do 
-    resources :comments, module: :video_items
+    resources :comments
     member do
       put "like", to: "video_items#upvote"
       put "dislike", to: "video_items#downvote"
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   # home page routes
+  match 'search/(:tab)', to: 'home#search', as: :search, via: [:get,:post]
   get '/videos/(:tab)', to: 'home#videos', as: :videos #tab optional parameter
   get '/:category_slug/(:tab)', to: 'home#categories', constraints: CategoryConstraint.new, as: :category
   get '/:video_slug', to: 'home#video', constraints:VideoItemConstraint.new, as: :video

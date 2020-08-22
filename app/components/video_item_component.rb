@@ -2,7 +2,7 @@ class VideoItemComponent < ViewComponent::Base
     with_collection_parameter :video
     include ViewComponent::Slotable
     extend Forwardable
-    delegate [:title,:slug,:video_type] => :@video
+    delegate [:title,:slug,:video_type, :excerpt] => :@video
     with_slot  :list
     attr_reader :video, :category
 

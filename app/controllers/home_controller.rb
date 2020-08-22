@@ -7,8 +7,7 @@ class HomeController < ApplicationController
     @banner_videos = VideoItem.banner_videos.limit(6)
     @latest_videos = VideoItem.latest_videos.limit(9)
     @popular_videos = VideoItem.popular_videos.limit(6)
-   
-  end
+     end
 
   def categories
    tab = params[:tab] || 'latest'
@@ -47,11 +46,21 @@ class HomeController < ApplicationController
     add_breadcrumb(tab)
   end
 
-
-  def addvideo
+  def search
+    videos = VideoItem.search(params[:q])
+    tab = params[:tab] || 'latest'
+    videos = case tab
+    when  'most_viewed'
+      videos.most_viewed
+    when 'most_commented'
+      videos.most_commented
+    when 'latest'
+      videos.latest_videos
+    end
+    @videos = videos.page(params[:page]).per(3)
   end
 
-  def search
+  def addvideo
   end
 
   def about_us
@@ -87,7 +96,7 @@ class HomeController < ApplicationController
       Category.include_video_items_with_attachments.show_in_home.order_by_position.limit(6)
     end
   end
-
+ 
   # def cache_generate(key,value)
   #   Rails.cache.fetch(key, expires_in: 12.hours) do
   #     value
