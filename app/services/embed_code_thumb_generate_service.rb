@@ -21,13 +21,14 @@ class EmbedCodeThumbGenerateService
         elsif (embed_code.include? "viddler")
             "http://cdn-thumbs.viddler.com/thumbnail_1_#{video_id}.jpg"
         elsif (embed_code.include? "vimeo")
-            api_call = "https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/#{video_id}"
-            result = JSON.parse(`curl #{api_call}`)
-            result["thumbnail_url"]
+            # api_call = "https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/#{video_id}"
+            # result = JSON.parse(`curl #{api_call}`)
+            # result["thumbnail_url"]
+            nil
         else
             nil
         end
-        thumbnail
+        thumbnail.present? ?  thumbnail :  "missing.jpg"
         rescue => e
         Rails.logger.error("Error extracting video thumbnail from embed code: #{e.message}")
         Rails.logger.error(e.backtrace.join("\n"))

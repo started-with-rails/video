@@ -4,8 +4,8 @@
             <div class="row">
             <div class="large-6 medium-6 columns head-left">
                 <h1>
-                    <a href="https://demo.templatic.com/video" rel="nofollow">
-                    <img src="https://demo.templatic.com/video/wp-content/uploads/sites/33/2020/06/logo-new.png" title="This is a demo video site"/>
+                    <a href="/" rel="nofollow">
+                    <img src="<%=asset_path('logo-new.png')%>" title="This is a demo video site"/>
                     </a>
                     <small>
                     This is a demo video site									</small>
@@ -44,21 +44,22 @@
                 </ul>
                 <section class="top-bar-section">
                     <ul id="menu-empty-menu" class="">
-                        <li id="menu-item-2666" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-1954 current_page_item menu-item-2666 active"><a href="https://demo.templatic.com/video/" aria-current="page">Home</a></li>
-                        <li id="menu-item-2450" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-has-children menu-item-2450 has-dropdown">
-                        <a href="https://demo.templatic.com/video/videoscategory/videos/">Category</a>
-                        <ul class="dropdown">
-                            <li id="menu-item-2451" class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2451"><a href="https://demo.templatic.com/video/videoscategory/technology/">Technology</a></li>
-                         </ul>
-                        </li>
-                        <li id="menu-item-2669" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2669"><a href="https://demo.templatic.com/video/about/">About Us</a></li>
-                        <li id="menu-item-2455" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2455"><a href="https://demo.templatic.com/video/blog-2/">Blog</a></li>
-                        <li id="menu-item-2667" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2667"><a href="https://demo.templatic.com/video/faqs/">FAQs</a></li>
-                        <li id="menu-item-2668" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2668"><a href="https://demo.templatic.com/video/submit-video/">Submit Video</a></li>
+                        <li  class="menu-item  <%=get_menu_status(action_name,'index')%>">
+                        <%=link_to 'Home', root_path%></li>
+                        <li  class="menu-item  <%=get_menu_status(action_name,'categories,video,videos')%>">
+                        <%=link_to 'Category', videos_path%></li>
+                        <li  class="menu-item <%=get_menu_status(action_name,'about_us')%>">
+                          <%=link_to 'About Us', about_us_path%></li>
+                        <li  class="menu-item <%=get_menu_status(action_name,'blog')%>">
+                          <%=link_to 'Blog', blog_path%></li>
+                        <li  class="menu-item <%=get_menu_status(action_name,'faqs')%>">
+                          <%=link_to 'Faqs', faqs_path%></li>
+                        <li  class="menu-item <%=get_menu_status(action_name,'new')%>">
+                         <%= link_to "Submit Video", new_video_item_path %></li>
                     </ul>
                     <div id="search-10" class="widget widget_search">
                         <div class="widget-wrap widget-inside">
-                        <form role="search" method="get" id="searchform" action="https://demo.templatic.com/video/" >
+                        <form role="search" method="get" id="searchform" action="/" >
                             <input type="text" value="" name="s" id="s" placeholder="Search the Site..." />
                             <input name="post_type[]" value="videos" type="hidden">
                             <input type="submit" id="searchsubmit" class="button" value="Search" />
@@ -75,7 +76,7 @@
             <div class="contain-to-grid">
             <nav class="tab-bar">
                 <section class="middle tab-bar-section">
-                    <h1 class="title"><a href="https://demo.templatic.com/video" rel="nofollow"><img src="https://demo.templatic.com/video/wp-content/uploads/sites/33/2020/06/logo-new.png" /></a></h1>
+                    <h1 class="title"><a href="/" rel="nofollow"><img src="<%=asset_path('logo-new.png')%>" /></a></h1>
                 </section>
                 <section class="left-small">
                     <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
@@ -89,12 +90,18 @@
             <div class="widget-wrap widget-inside">
                 <div class="menu-menu-container">
                     <ul id="menu-menu-1" class="menu">
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-1931 active"><a href="https://demo.templatic.com/video" aria-current="page">Home</a></li>
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-1946"><a href="https://demo.templatic.com/video/videoscategory/videos/">Videos</a></li>
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2446"><a href="https://demo.templatic.com/video/videoscategory/technology/">Technology</a></li>
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2447"><a href="https://demo.templatic.com/video/videoscategory/travel/">Travel</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-2445"><a href="https://demo.templatic.com/video/blog/">Blog</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1961"><a href="https://demo.templatic.com/video/about/">About Us</a></li>
+                        <li  class="menu-item  <%=get_menu_status(action_name,'index')%>">
+                        <%=link_to 'Home', root_path%></li>
+                        <li  class="menu-item  <%=get_menu_status(action_name,'categories,video,videos')%>">
+                        <%=link_to 'Category', videos_path%></li>
+                        <li  class="menu-item <%=get_menu_status(action_name,'about_us')%>">
+                          <%=link_to 'About Us', about_us_path%></li>
+                        <li  class="menu-item <%=get_menu_status(action_name,'blog')%>">
+                          <%=link_to 'Blog', blog_path%></li>
+                        <li  class="menu-item <%=get_menu_status(action_name,'faqs')%>">
+                          <%=link_to 'Faqs', faqs_path%></li>
+                        <li  class="menu-item <%=get_menu_status(action_name,'new')%>">
+                         <%= link_to "Submit Video", new_video_item_path %></li>
                     </ul>
                 </div>
             </div>
@@ -109,7 +116,7 @@
                         <%else%>
                         <li class="tmpl-login tmpl-link" > <%= link_to "Sign in", new_user_session_path %></li>
                         <%end%>
-                        <li class='listing-btn'><a href='https://demo.templatic.com/video/submit-video/'>Add Video</a></li>
+                        <li class='listing-btn'><a href='/submit-video/'>Add Video</a></li>
                     </ul>
                 </div>
                 <div id="text-6" class="widget widget_text">

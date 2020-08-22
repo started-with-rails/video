@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class VotesReflex < ApplicationReflex
-  delegate :current_user, to: :connection
-  delegate :render, to: ApplicationController
+ 
   before_reflex :set_video
 
 
@@ -19,8 +18,7 @@ class VotesReflex < ApplicationReflex
   private
 
   def set_video
-    id =  element.dataset[:id].to_i
-    @video = VideoItem.find(id)
+    @video = GlobalID::Locator.locate_signed(element.dataset.signed_id)
   end
 
   def render_data

@@ -5,7 +5,7 @@ module HomeHelper
     end
 
     def video_views_count(video)
-        video.impressions.select(:ip_address).distinct.count
+        video.impressions_count
     end
 
     def video_created_time(video)
@@ -13,8 +13,12 @@ module HomeHelper
     end
 
     def get_tab_status(label,tab=nil)
-        return (label == 'latest' && tab.nil?) ? 'active' : ''
+        return 'active' if tab.nil? && label == 'latest' 
         label == tab ? 'active' : ''
+    end
+
+    def get_menu_status(action,items)
+        items.split(",").include?(action)  ? 'active' : ''
     end
 
     def default_image

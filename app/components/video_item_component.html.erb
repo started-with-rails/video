@@ -16,6 +16,14 @@
         <!-- Show video meta -->
     <div class='view-desc'>
         <h6><%=link_to title, video_url(video_slug: slug)%></h6>
-        <span class="byline"><span class="disabled-btn"><i class="step fa fa-eye"></i> <span><%=video_views_count%></span></span><cite class="fn"><i class="fa fa-clock-o"></i> <%=created_date%></cite></span>
+        <span class="byline">
+        <span class="disabled-btn">
+            <i class="step fa fa-eye"></i> <span><%=video_views_count%></span>
+        </span>
+         <span class="disabled-btn">
+            <i class="step fa fa-comment"></i> <span><%=comments_count%></span>
+        </span>
+        <cite class="fn"><i class="fa fa-clock-o"></i> <%=created_date%></cite>
+        </span>
     </div>
 </<%=html_ele%> >

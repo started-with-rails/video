@@ -30,6 +30,7 @@ gem 'impressionist'
 gem "view_component"
 gem 'sidekiq'
 gem 'acts_as_votable'
+gem 'kaminari'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

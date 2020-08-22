@@ -3,8 +3,11 @@ class Category < ApplicationRecord
   scope :active, -> {where(:status => true)}
   has_and_belongs_to_many :video_items
   has_and_belongs_to_many :latest_videos, ->  { latest_videos }, class_name: 'VideoItem'
-  # has_and_belongs_to_many :most_viewed_videos, ->  { latest_videos }, class_name: 'VideoItem'
-  # has_and_belongs_to_many :most_liked_videos, ->  { latest_videos }, class_name: 'VideoItem'
+  has_and_belongs_to_many :most_viewed_videos, ->  { most_viewed }, class_name: 'VideoItem'
+  has_and_belongs_to_many :most_rated_videos, ->  { most_rated }, class_name: 'VideoItem'
+  has_and_belongs_to_many :most_commented_videos, ->  { most_commented }, class_name: 'VideoItem'
+  
+ 
 
   scope :active, -> {where(status: true)}
   scope :show_in_home, -> {where(show_in_home_page: true).active }

@@ -9,7 +9,10 @@ module VideoScopes
         scope :url_videos, -> { where(video_type: 'video_url') }
 
         scope :latest_videos, -> {  with_attachments.featured.recent}
-        scope :popular_videos, -> { with_attachments.order(:cached_weighted_average => :desc) }
+        scope :most_viewed, -> { with_attachments.order(impressions_count: :desc) }
+        scope :most_rated, -> { with_attachments.order(cached_votes_up:  :desc) }
+        scope :most_commented, -> { with_attachments.joins(:comments).group("video_items.id").order("count(video_items.id) DESC") }
+        scope :popular_videos, -> { with_attachments.order(cached_weighted_average: :desc) }
         
         scope :similar_categories_videos, -> (video) do
             joins(:categories).where(categories: { id: video.category_ids.uniq }).recent.distinct.with_attachments.limit(6)

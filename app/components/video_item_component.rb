@@ -12,7 +12,7 @@ class VideoItemComponent < ViewComponent::Base
     end
 
     def video_views_count
-        video.impressions.select(:ip_address).distinct.count
+        video.impressions_count
     end
 
     def created_date
@@ -36,6 +36,10 @@ class VideoItemComponent < ViewComponent::Base
 
     def category_slug
         category.try(:slug)
+    end
+
+    def comments_count
+        video.comments.size
     end
 
     def html_ele

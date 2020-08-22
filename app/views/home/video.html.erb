@@ -48,7 +48,7 @@
             </div>
          </article>
          <!-- If comments are open, but there are no comments. -->
-         <%= render 'comments' %>
+          <%=  render partial: "comments" , locals: {video: @video, comment: Comment.new} %> 
       </div>
       <!-- end #main -->
       <!-- Video Detail  Page sidebar -->

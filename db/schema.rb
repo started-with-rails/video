@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_16_064232) do
+ActiveRecord::Schema.define(version: 2020_08_22_074744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 2020_08_16_064232) do
     t.bigint "video_item_id"
     t.index ["category_id"], name: "index_categories_video_items_on_category_id"
     t.index ["video_item_id"], name: "index_categories_video_items_on_video_item_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "content"
+    t.bigint "commentable_id"
+    t.string "commentable_type"
+    t.boolean "status", default: true
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["commentable_type", "commentable_id"], name: "index_comments_on_commentable_type_and_commentable_id"
   end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
@@ -136,6 +147,7 @@ ActiveRecord::Schema.define(version: 2020_08_16_064232) do
     t.integer "cached_weighted_score", default: 0
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
+    t.integer "impressions_count", default: 0
     t.index ["slug"], name: "index_video_items_on_slug", unique: true
     t.index ["user_id"], name: "index_video_items_on_user_id"
   end

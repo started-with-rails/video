@@ -1,29 +1,25 @@
- <section id="respond" class="respond-form">
+<div  id="video_comments_<%=video.id%>"  data-controller="comment">
+<%if video.comments.size.to_i > 0 %>
+ <h3 id="comments" class="h2"> Responses to  “<%=video.title%>” </h3>
+ <ol  class="commentlist" >
+     <%= render(CommentComponent.with_collection(video.comments.order(:id))) %>
+</ol>
+<%end%>
+ <section class="respond-form">
     <h3 id="comment-form-title" class="h2">Leave a Reply</h3>
-    <div id="cancel-comment-reply">
-        <p class="small"><a rel="nofollow" id="cancel-comment-reply-link" href="/video/videos/miley-cyrus-the-climb/#respond" style="display:none;">Click here to cancel reply.</a></p>
+    <%= simple_form_for [video, Comment.new], data: { target: "comment.content", reflex: "submit->CommentReflex#submit", signed_id: video.to_sgid.to_s , } do |f| %>
+    <div class="form-group">
+       <p> <%= f.input :content, label: false, class: "form-control", placeholder: "Your Comment here...", tabindex: 1 %> </p>
     </div>
-    <form action="https://demo.templatic.com/video/wp-comments-post.php" method="post" id="commentform">
-        <p><textarea name="comment" id="comment" placeholder="Your Comment here..." tabindex="1"></textarea></p>
-        <ul id="comment-form-elements" class="clearfix">
-            <li>
-                <label for="author">Name (required)</label>
-                <input type="text" name="author" id="author" value="" placeholder="Your Name*" tabindex="2" aria-required='true' />
-            </li>
-            <li>
-                <label for="email">Mail (required)</label>
-                <input type="email" name="email" id="email" value="" placeholder="Your E-Mail*" tabindex="3" aria-required='true' />
-                <small>(will not be published)</small>
-            </li>
-            <li>
-                <label for="url">Website</label>
-                <input type="url" name="url" id="url" value="" placeholder="Got a website?" tabindex="4" />
-            </li>
-        </ul>
-        <p>
-            <input name="submit" type="submit" id="submit" class="button"  value="Submit" />
-            <input type='hidden' name='comment_post_ID' value='1754' id='comment_post_ID' />
-            <input type='hidden' name='comment_parent' id='comment_parent' value='0' />
-        </p>
-    </form>
+     <% if comment.presence  && comment.errors.any? %>
+        <% comment.errors.full_messages.each do |message| %>
+        <li><%= message %>
+        <% end %>
+    <% end %>
+    <p></p>
+     <div class="form-group">
+    <p><%= f.submit class: "button" %></p>
+    </div>
+    <% end %>
 </section>
+</div>

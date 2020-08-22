@@ -4,8 +4,7 @@
             <%= render(BreadCrumbComponent.new(breadcrumbs: @breadcrumbs)) %>
             <!-- Start header-->
             <header>
-                <h1 class="archive-title"><%=@category.try(:title)%></h1>
-                <p><%=@category.try(:description)%></p>		
+                <h1 class="archive-title">Videos</h1>
             </header>
             <!-- End header-->
             <article class="row">
@@ -22,12 +21,12 @@
                     </div>
                     <!-- #End-->
                     <!-- Tabs start -->
-                      <dd class="<%=get_tab_status('latest', params[:tab])%>">
-                        <%=link_to 'Latest', category_path(category_slug: params[:category_slug], tab: 'latest') %></dd>
+                    <dd class="<%=get_tab_status('latest', params[:tab])%>">
+                        <%=link_to 'Latest', videos_path(tab: 'latest') %></dd>
                     <dd class="<%=get_tab_status('most_viewed', params[:tab])%>">
-                        <%=link_to 'Most Viewed', category_path(category_slug: params[:category_slug], tab: 'most_viewed') %></dd>
+                        <%=link_to 'Most Viewed', videos_path(tab: 'most_viewed') %></dd>
                     <dd class="<%=get_tab_status('most_commented', params[:tab])%>">
-                        <%=link_to 'Most Commented', category_path(category_slug: params[:category_slug], tab: 'most_commented') %></dd>
+                        <%=link_to 'Most Commented', videos_path(tab: 'most_commented') %></dd>
                     <!-- Tabs #End-->
                 </dl>
                 <!-- Tab start -->

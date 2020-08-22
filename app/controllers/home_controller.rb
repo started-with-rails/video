@@ -11,8 +11,17 @@ class HomeController < ApplicationController
   end
 
   def categories
+   tab = params[:tab] || 'latest'
+   videos = case tab
+   when  'most_viewed'
+    @category.most_viewed_videos
+   when 'most_commented'
+    @category.most_commented_videos
+   when 'latest'
+     @category.latest_videos
+   end
+   @videos = videos.with_attachments.page(params[:page]).per(2)
    add_breadcrumb(@category.try(:title))
-   @latest_videos = @category.latest_videos.with_attachments
   end
 
   def video
@@ -21,10 +30,21 @@ class HomeController < ApplicationController
     end
     add_breadcrumb(@category.try(:title),category_url(category_slug: @category.try(:slug)))
     add_breadcrumb(@video.try(:title))
-    impressionist(@video)
+    impressionist(@video, "some message", :unique => [:session_hash])
   end
 
   def videos
+    tab = params[:tab] || 'latest'
+    videos = case tab
+    when  'most_viewed'
+      VideoItem.most_viewed
+    when 'most_commented'
+      VideoItem.most_commented
+    when 'latest'
+      VideoItem.latest_videos
+    end
+    @videos = videos.page(params[:page]).per(3)
+    add_breadcrumb(tab)
   end
 
 
@@ -33,6 +53,19 @@ class HomeController < ApplicationController
 
   def search
   end
+
+  def about_us
+    add_breadcrumb('About Us')
+  end
+
+  def blog
+    add_breadcrumb('Blog')
+  end
+
+  def faqs
+    add_breadcrumb('Faqs')
+  end
+
 
   private
 

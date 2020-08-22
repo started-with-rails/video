@@ -1,0 +1,16 @@
+ <section class="respond-form">
+    <h3 id="comment-form-title" class="h2">Leave a Reply</h3>
+
+    <% if @comment.present? && @comment.errors.any? %>
+        <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %>
+        <% end %>
+    <% end %>
+
+    <%= simple_form_for [commentable, Comment.new], data: { reflex: "submit->CommentReflex#submit", signed_id: commentable.to_sgid.to_s } do |f| %>
+    <div class="form-group">
+       <p> <%= f.input :content,label: false,  class: "form-control", placeholder: "Your Comment here...", tabindex: 1 %> </p>
+    </div>
+    <p><%= f.submit class: "button" %></p>
+    <% end %>
+</section>

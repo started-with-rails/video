@@ -1,15 +1,15 @@
  <ul class="button-group" id="<%=dom_id(video)%>">
-    <li><a class="button" href="#respond"><i class="step fa fa-comment"></i><span><%= video.get_upvotes.size%></span></a></li>
+    <li><a class="button" href="#respond"><i class="step fa fa-comment"></i><span><%= video.comments.size%></span></a></li>
     <li>
     <a class="button" href="#"
         data-reflex="click->VotesReflex#upvote"
-        data-id="<%=video.id%>" 
+        data-signed_id="<%=video.to_sgid.to_s%>" 
         ><i class="step fa fa-thumbs-up"></i><span><%= video.get_upvotes.size%></span></a>
     </li>
         <li>
     <a class="button" href="#"
         data-reflex="click->VotesReflex#downvote"
-        data-id="<%=video.id%>" 
+        data-signed_id="<%=video.to_sgid.to_s%>" 
         ><i class="step fa fa-thumbs-down"></i><span><%= video.get_downvotes.size%></span></a>
     </li>
     <li class="disabled-btn"><i class="step fa fa-eye"></i><span><span><%=video_views_count(video)%></span> Views</span></li>

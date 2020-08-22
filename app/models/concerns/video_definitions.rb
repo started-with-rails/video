@@ -17,8 +17,9 @@
         validates_acceptance_of :accepted_terms_and_conditions, accept: "1", message: "You must accept the terms of service"
         validates_presence_of :categories
         after_save :set_video_thumbnail, if: proc { |obj| obj.thumbnail_option == 'generate' }
-        is_impressionable
+        is_impressionable :counter_cache => true, :unique => :request_hash
         acts_as_votable cacheable_strategy: :update_columns
+        has_many :comments, as: :commentable
 
         def set_video_thumbnail
           return if video_thumbnail.attached?

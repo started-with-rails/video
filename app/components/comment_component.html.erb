@@ -1,0 +1,18 @@
+<li class="comment even thread-even depth-1 panel">
+    <article id="comment-<%=id%>" class="clearfix large-12 columns">
+        <header class="comment-author">
+            <img alt="<path_to_url>" src="https://secure.gravatar.com/avatar/316a26014c6e203f76d222f326462753?s=62&amp;d=mm&amp;r=g" srcset="https://secure.gravatar.com/avatar/316a26014c6e203f76d222f326462753?s=124&amp;d=mm&amp;r=g 2x" class="avatar avatar-62 photo" height="62" width="62">
+            <cite class="fn">
+            <a href="/"><%=user%></a>
+            </cite>	
+            <time datetime="<%=created_time%>"><span class="byline"> on <%=created_time%> </span>
+            </time>
+        </header>
+        <div class="alert alert-info">
+            <p>Your comment is awaiting moderation.</p>
+        </div>
+        <section class="comment_content clearfix">
+            <p><%=content%></p>	
+        </section>
+    </article>
+</li>
