@@ -1,6 +1,6 @@
   <div id="content">
     <div id="inner-content" class="row clearfix">
-        <div id="main" class="large-9 medium-12 columns first clearfix" role="main">
+        <div id="main" class="large-9 medium-12 columns first clearfix" role="main" data-controller="videos">
             <%= render(BreadCrumbComponent.new(breadcrumbs: @breadcrumbs)) %>
             <!-- Start header-->
             <header>
@@ -14,12 +14,7 @@
                     <!-- Tabs -->
                     <!-- Grid view /List view -->
                     <!-- Button of grid - list view -->
-                    <div class="grid-list-btn hide-for-xsmall-only right hide-for-small-only">
-                        <ul class="button-group viewsbox">
-                            <li><a href="#" id="gridview" class="active button"><i class="fa fa-th step"></i><span>Grid View</span></a></li>
-                            <li><a href="#" id="listview" class="button"><i class="fa fa-list step"></i><span>List View</span></a></li>
-                        </ul>
-                    </div>
+                   <%= render 'tabs' %>
                     <!-- #End-->
                     <!-- Tabs start -->
                       <dd class="<%=get_tab_status('latest', params[:tab])%>">
@@ -31,7 +26,7 @@
                     <!-- Tabs #End-->
                 </dl>
                 <!-- Tab start -->
-                <div id="video-cat-content" class="tabs-content row grid">
+                <div id="video-cat-content" class="tabs-content row grid"  data-target="videos.content">
                     <div class="content thumbnails active" id="most_video_view">
                     <%= render(VideoItemComponent.with_collection(@videos)) %>
                     <%= paginate @videos %>
@@ -54,15 +49,15 @@
                 <div id="tmpl_adv_widget-7" class="widget widget Advertise">
                 <div class="widget-wrap widget-inside">
                     <div class="advt advt-2c">
-                        <img src="https://demo.templatic.com/video/wp-content/uploads/sites/33/2020/06/banner-1.jpg" class="thumb-img"> 
-                        <img src="https://demo.templatic.com/video/wp-content/uploads/sites/33/2020/06/banner-1.jpg" class="thumb-img"> 
+                        <img src="<%=asset_path('banner-1.jpg')%>" class="thumb-img"> 
+                        <img src="<%=asset_path('banner-1.jpg')%>" class="thumb-img"> 
                     </div>
                 </div>
                 </div>
                 <div id="tmpl_adv_widget-17" class="widget widget Advertise">
                 <div class="widget-wrap widget-inside">
                     <div class="advt advt-1c">
-                        <img src="https://demo.templatic.com/video/wp-content/uploads/sites/33/2020/06/banner.jpg" class="thumb-img"> 
+                        <img src="<%=asset_path('banner.jpg')%>" class="thumb-img"> 
                     </div>
                 </div>
                 </div>

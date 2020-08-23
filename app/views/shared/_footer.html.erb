@@ -4,21 +4,16 @@
             <div id="text-5" class="widget widget_text">
             <div class="widget-wrap widget-inside">
                 <h3 class="widget-title h2">About Us</h3>
-                <div class="textwidget">Create a <strong>beautiful video portal</strong> using this sleek looking theme. Best part about the theme is we have kept it as simple as we could, along with the videos the theme can be used for blogging too. Our primary goal while creating the theme was it should work faster then any theme we created till date, the demo site shows this works fast. <br/><a href="http://templatic.com/app-themes/wordpress-video-theme/">Purchase this theme</a></div>
+                <div class="textwidget">Create a <strong>beautiful video portal</strong> using this sleek looking theme. Best part about the theme is we have kept it as simple as we could, along with the videos the theme can be used for blogging too. Our primary goal while creating the theme was it should work faster then any theme we created till date, the demo site shows this works fast. <br/><a href="/">Purchase this theme</a></div>
             </div>
             </div>
             <div id="nav_menu-5" class="widget widget_nav_menu">
             <div class="widget-wrap widget-inside">
                 <h3 class="widget-title h2">Video</h3>
                 <div class="menu-video-container">
-                    <ul id="menu-video-1" class="menu">
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2655"><a href="https://demo.templatic.com/video/videoscategory/health/">Health</a></li>
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2656"><a href="https://demo.templatic.com/video/videoscategory/technology/">Technology</a></li>
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2657"><a href="https://demo.templatic.com/video/videoscategory/travel/">Travel</a></li>
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2658"><a href="https://demo.templatic.com/video/videoscategory/sports/">Sports</a></li>
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2659"><a href="https://demo.templatic.com/video/videoscategory/life/">Life</a></li>
-                        <li class="menu-item menu-item-type-taxonomy menu-item-object-videoscategory menu-item-2660"><a href="https://demo.templatic.com/video/videoscategory/animation-videos/">Animation</a></li>
-                    </ul>
+                  	<ul id="menu-video" class="menu">
+						<%= render(CategoryComponent.with_collection(@categories)) %>
+					</ul>
                 </div>
             </div>
             </div>
@@ -30,14 +25,7 @@
                         <h3 class="widget-title h2">Subscribe To Newsletter</h3>
                         <p> Get latest news about us directly in your inbox. We will never spam, Promise. </p>
                         <span class="newsletter_msg" id="newsletter_msg"> </span>
-                        <form action="//feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('//feedburner.google.com/fb/a/mailverify?uri=templatic', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" >
-                            <input type="text" id="newsletter_name" name="name" value="" class="field" onfocus="if (this.placeholder == 'Your Name') {this.placeholder = '';}" onblur="if (this.placeholder == '') {this.placeholder = 'Your Name';}" placeholder ="Your Name"  />
-                            <input type="text" id="newsletter_email" name="email" value="" class="field" onfocus="if (this.placeholder == 'Your Email Address') {this.placeholder = '';}" onblur="if (this.placeholder == '') {this.placeholder = 'Your Email Address';}" placeholder="Your Email Address"/>
-                            <input type="hidden" value="templatic" name="uri"   />
-                            <input type="hidden" value="Video" name="title" />
-                            <input type="hidden" name="loc" value="en_US"/>
-                            <input class="replace button" type="submit" name="submit" value="Subscribe" />
-                        </form>
+                       
                         </div>
                     </div>
                 </div>
@@ -45,7 +33,7 @@
             </div>
             </div>
             <div id="social_media-4" class="widget widget social_media">
-            <div class="widget-wrap widget-inside">
+            <%# <div class="widget-wrap widget-inside">
                 <div class="social_media" >
                     <h3 class="widget-title h2">Connect With Us</h3>
                     <p class="social_description"> Find Us On Social Sites </p>
@@ -55,51 +43,18 @@
                             <li> <a href="https://facebook.com/templatic" class="facebook" target="_blank">
                                 <i class="fa fa-facebook"></i></a> 
                             </li>
-                            <li> <a href="https://twitter.com/templatic" class="twitter" target="_blank">
-                                <i class="fa fa-twitter"></i></a> 
-                            </li>
-                            <li> <a href="https://www.youtube.com/user/templatic" class="linkedin" target="_blank">
-                                <i class="fa fa-linkedin"></i></a> 
-                            </li>
-                            <li> <a href="https://www.youtube.com/user/templatic" class="youtube" target="_blank">
-                                <i class="fa fa-youtube"></i></a> 
-                            </li>
-                            <li> <a href="http://templatic.com" class="google-plus" target="_blank" >
-                                <i class="fa fa-google-plus"></i></a> 
-                            </li>
-                            <li> <a href="http://templatic.com" class="pinterest" target="_blank" >
-                                <i class="fa fa-pinterest"></i></a> 
-                            </li>
-                            <li> <a href="http://templatic.com" class="dribbble" target="_blank" >
-                                <i class="fa fa-dribbble"></i></a> 
-                            </li>
-                            <li> <a href="http://templatic.com" class="flickr" target="_blank" >
-                                <i class="fa fa-flickr"></i></a> 
-                            </li>
-                            <li> <a href="http://templatic.com" class="github" target="_blank" >
-                                <i class="fa fa-github"></i></a> 
-                            </li>
-                            <li> <a href="http://templatic.com" class="instagram" target="_blank" >
-                                <i class="fa fa-instagram"></i></a> 
-                            </li>
-                            <li> <a href="http://templatic.com" class="skype" target="_blank" >
-                                <i class="fa fa-skype"></i></a> 
-                            </li>
-                            <li> <a href="http://templatic.com" class="tumblr" target="_blank" >
-                                <i class="fa fa-tumblr"></i></a> 
-                            </li>
                         </ul>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> %>
             </div>
         </div>
         <div class="footer-bottom">
             <div class="large-12 medium-12 columns">
             <div class="columns footer-meta">
                 <p class="source-org copyright left">&copy; 2020 Video.</p>
-                <p class="right"><a href="http://templatic.com/">Video</a> theme designed by <a href="http://templatic.com/">Templatic</a></p>
+                <p class="right"><a href="/">Video</a> theme designed by <a href="/">Self</a></p>
             </div>
             </div>
         </div>

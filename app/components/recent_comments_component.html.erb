@@ -1,0 +1,5 @@
+ <li class="recentcomments">
+    <span class="comment-author-link">
+    <a href='/' rel='external nofollow' class='url'><%=comment_user%></a></span> on 
+    <%= link_to video_title,  video_path(video_slug: comment.commentable.try(:slug)) %>
+</li>

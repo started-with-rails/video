@@ -2,15 +2,19 @@
          <div id="tmpl_adv_widget-21" class="widget widget Advertise">
             <div class="widget-wrap widget-inside">
                <div class="advt advt-1c">
-                  <a href="http://templatic.com"><img src="https://demo.templatic.com/video/wp-content/uploads/sites/33/2020/06/banner.jpg" class="thumb-img"></a> 
+                  <a href="/"><img src="<%=asset_path('banner.jpg')%>" class="thumb-img"></a> 
                </div>
             </div>
          </div>
          <div class="widget login_widget" id="login_widget">
             <h3 class="widget-title"><span class="red"></span>Dashboard</h3>
             <ul class="xoxo blogroll">
-               <li class="tmpl-login current_page_item">  <a href="https://demo.templatic.com/video/?ptype=login" title="Login"> <i class="fa fa-key"></i> Login</a></li>
-               <li class="listing-btn"><a href="https://demo.templatic.com/video/"> <i class="fa fa-play-circle"></i>Add Video</a></li>
+               <li class="tmpl-login current_page_item"> 
+                <a href="<%=new_user_session_path%>" title="Login"> <i class="fa fa-key"></i> Login</a>
+               </li>
+               <li class="listing-btn">
+                   <a href="<%=new_video_item_path%>"> <i class="fa fa-play-circle"></i>Add Video</a>
+               </li>
             </ul>
          </div>
          <div id="text-7" class="widget widget_text">

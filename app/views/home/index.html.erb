@@ -81,7 +81,7 @@
 		<div id="sidebar1" class="sidebar large-3 medium-12 columns" role="complementary">
 			<div id="tmpl_adv_widget-18" class="widget widget Advertise">
 				<div class="widget-wrap widget-inside">
-					<div class="advt advt-1c"> <img src="https://demo.templatic.com/video/wp-content/uploads/sites/33/2020/06/banner.jpg" class="thumb-img"> </div>
+					<div class="advt advt-1c"> <img src="<%=asset_path('banner.jpg')%>" class="thumb-img"> </div>
 				</div>
 			</div>
 			<div id="tmpl_widget_popular_posts-5" class="widget widget_popular_posts">
@@ -108,18 +108,10 @@
 			</div>
 			<div id="tmpl_adv_widget-20" class="widget widget Advertise">
 				<div class="widget-wrap widget-inside">
-					<div class="advt advt-1c"> <img src="https://demo.templatic.com/video/wp-content/uploads/sites/33/2020/06/banner.jpg" class="thumb-img"> </div>
+					<div class="advt advt-1c"> <img src="<%=asset_path('banner.jpg')%>" class="thumb-img"> </div>
 				</div>
 			</div>
-			<div id="recent-comments-5" class="widget widget_recent_comments">
-				<div class="widget-wrap widget-inside">
-					<h3 class="widget-title h2">Recent Comments</h3>
-					<ul id="recentcomments">
-						<li class="recentcomments"><span class="comment-author-link"><a href='http://templatic.com' rel='external nofollow ugc' class='url'>Gerrard Buttler</a></span> on <a href="https://demo.templatic.com/video/title-with-markup/#comment-2585">Title With Markup</a></li>
-					
-					</ul>
-				</div>
-			</div>
+			<%= render 'recent_comments' %>
 		</div>
 		<!-- Front  Page sidebar End-->
 	</div>

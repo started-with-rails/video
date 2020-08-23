@@ -7,7 +7,8 @@ class HomeController < ApplicationController
     @banner_videos = VideoItem.banner_videos.limit(6)
     @latest_videos = VideoItem.latest_videos.limit(9)
     @popular_videos = VideoItem.popular_videos.limit(6)
-     end
+    @comments = Comment.recent.limit(6)
+  end
 
   def categories
    tab = params[:tab] || 'latest'

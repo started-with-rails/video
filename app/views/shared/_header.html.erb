@@ -57,10 +57,11 @@
                         <li  class="menu-item <%=get_menu_status(action_name,'new')%>">
                          <%= link_to "Submit Video", new_video_item_path %></li>
                     </ul>
+
                     <div id="search-10" class="widget widget_search">
                         <div class="widget-wrap widget-inside">
-                        <%= form_tag(search_path, method: :get )do %>
-                            <%= text_field_tag :q , '', html: {  placeholder: "Search the Site..." }%>
+                        <%= form_tag(search_path, id: "searchform")do %>
+                            <%= text_field_tag :q , "", required: true, placeholder: "Search the Site..." %>
                             <%= submit_tag 'Search',  id: "searchsubmit" ,class: "button" %>
                         <% end %>
                         </div>

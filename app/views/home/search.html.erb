@@ -1,16 +1,11 @@
 <div id="content">
    <div id="inner-content" class="row clearfix">
-      <div id="main" class="large-9 medium-12 columns first clearfix" role="main">
+      <div id="main" class="large-9 medium-12 columns first clearfix" role="main" data-controller="videos">
          <h1 class="archive-title"><span>Search Results for:</span> <span> <%=params[:q]%> </span></h1>
          <dl class="tabs radius">
             <!-- Grid view /List view -->
             <!-- Button of grid - list view -->
-            <div class="grid-list-btn hide-for-xsmall-only right hide-for-small-only">
-               <ul class="button-group viewsbox">
-                  <li><a href="#" id="gridview" class="active button" style="position: relative; top: 0px;"><i class="fa fa-th step"></i><span>Grid View</span></a></li>
-                  <li><a href="#" id="listview" class="button" style="position: relative; top: 0px;"><i class="fa fa-list step"></i><span>List View</span></a></li>
-               </ul>
-            </div>
+            <%= render 'tabs' %>
             <!-- #End-->
             <!-- #tabs start -->
               <dd class="<%=get_tab_status('latest', params[:tab])%>">
@@ -21,7 +16,7 @@
                   <%=link_to 'Most Commented', search_path(q: params[:q], tab: 'most_commented') %></dd>
             <!-- #tabs end -->
          </dl>
-         <div class="tabs-content list" id="video-cat-content">
+         <div class="tabs-content row grid" id="video-cat-content" data-target="videos.content">
             <div class="content thumbnails active" id="most_video_view">
                <%= render(VideoItemComponent.with_collection(@videos)) %>
                <%= paginate @videos %>
@@ -34,7 +29,7 @@
          <div id="tmpl_adv_widget-3" class="widget widget Advertise">
             <div class="widget-wrap widget-inside">
                <div class="advt advt-1c">
-                  <a href="http://templatic.com"><img src="https://demo.templatic.com/video/wp-content/uploads/sites/33/2020/06/banner.jpg"></a> 
+                  <a href="/"><img src="<%=asset_path('banner.jpg')%>"></a> 
                </div>
             </div>
          </div>
