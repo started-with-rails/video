@@ -273,6 +273,18 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
+  github_client_id = Rails.application.credentials.github[:client_id]
+  github_client_secret = Rails.application.credentials.github[:client_secret]
+  config.omniauth :github, github_client_id, github_client_secret, scope: 'user,public_repo'
+
+  google_client_id = Rails.application.credentials.google_oauth2[:client_id]
+  google_client_secret = Rails.application.credentials.google_oauth2[:client_secret]
+  config.omniauth :google_oauth2, google_client_id, google_client_secret, scope: 'userinfo.email,userinfo.profile', skip_jwt: true
+
+  facebook_client_id = Rails.application.credentials.facebook[:client_id]
+  facebook_client_secret = Rails.application.credentials.facebook[:client_secret]
+  config.omniauth :facebook, facebook_client_id, facebook_client_secret, scope: 'public_profile,email'
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.

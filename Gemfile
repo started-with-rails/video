@@ -34,6 +34,12 @@ gem 'kaminari'
 gem 'elasticsearch-model',"0.1.7"
 gem 'elasticsearch-rails', "~> 6.0.0"
 
+gem 'omniauth-github'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'activerecord-session_store'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

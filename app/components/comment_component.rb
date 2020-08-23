@@ -13,6 +13,10 @@ class CommentComponent < ViewComponent::Base
   end
 
   def user
-    comment.user.email
+    comment.user.try(:name)
+  end
+
+  def avatar
+    comment.user.avatar.attached? ? comment.user.avatar.variant(resize_to_limit: [50,50]).processed : 'user.png'
   end
 end
