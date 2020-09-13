@@ -1,4 +1,6 @@
-<li id="menu-item-2655" class="menu-item">
+<li id="menu-item-#{id}" class="menu-item">
     <%=link_to  title, category_url(category_slug: slug)%>
+    <%unless menu_item%>
     (<%=videos_count%>)
+    <%end%>
 </li>

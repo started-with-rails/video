@@ -46,8 +46,16 @@
                     <ul id="menu-empty-menu" class="">
                         <li  class="menu-item  <%=get_menu_status(action_name,'index')%>">
                         <%=link_to 'Home', root_path%></li>
-                        <li  class="menu-item  <%=get_menu_status(action_name,'categories,video,videos')%>">
-                        <%=link_to 'Category', videos_path%></li>
+                        <li  class="menu-item menu-item-has-children has-dropdown not-click <%=get_menu_status(action_name,'categories,video,videos')%>">
+                        <%=link_to 'Category', videos_path%>
+													<ul class="dropdown">
+													 <%= render(CategoryComponent.with_collection(@categories))  do |component|%>
+														<% component.slot(:menu_item) do %>
+															this is menu item
+														<% end %>
+														<%end%>
+													</ul>
+												</li>
                         <li  class="menu-item <%=get_menu_status(action_name,'about_us')%>">
                           <%=link_to 'About Us', about_us_path%></li>
                         <li  class="menu-item <%=get_menu_status(action_name,'blog')%>">
@@ -116,7 +124,7 @@
                         <%else%>
                         <li class="tmpl-login tmpl-link" > <%= link_to "Sign in", new_user_session_path %></li>
                         <%end%>
-                        <li class='listing-btn'><a href='/submit-video/'>Add Video</a></li>
+                        <li class='listing-btn'> <%= link_to "Add Video", new_video_item_path %></li>
                     </ul>
                 </div>
                 <div id="text-6" class="widget widget_text">

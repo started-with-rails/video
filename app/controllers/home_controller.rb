@@ -77,9 +77,4 @@ class HomeController < ApplicationController
     end
   end
  
-  # def cache_generate(key,value)
-  #   Rails.cache.fetch(key, expires_in: 12.hours) do
-  #     value
-  #   end
-  # end
 end
