@@ -1,18 +1,13 @@
 <div class="medium-7 small-12 columns">
     <ul class="button-group right social-media-links">
-        <li><a class="button" href="//twitter.com/home?status=Reading: https://demo.templatic.com/video/videos/miley-cyrus-the-climb/" title="Share this post on Twitter!" target="_blank"><i class="step fa fa-twitter"></i> </a></li>
-        <li><a class="button" href="//www.facebook.com/sharer.php?u=https://demo.templatic.com/video/videos/miley-cyrus-the-climb/&amp;t=Down the Nile" title="Share this post on Facebook!" target="_blank"> <i class="step fa fa-facebook"></i> </a></li>
-        <li class="share-reddit"><a rel="nofollow" class="share-reddit sd-button share-icon no-text" href="//blog.ted.com/2013/12/05/tedwomen-2013-session-3/?share=reddit" target="_blank" title="Click to share on Reddit"><span></span></a></li>
+        <li><a class="button" href="//twitter.com/home?status=Reading: <%=video_url(video_slug: @video.try(:slug))%>/" title="Share this post on Twitter!" target="_blank"><i class="step fa fa-twitter"></i> </a></li>
+        <li><a class="button" href="//www.facebook.com/sharer.php?u=<%=video_url(video_slug: @video.try(:slug))%>/&amp;t=<%=@video.try(:title)%>" title="Share this post on Facebook!" target="_blank"> <i class="step fa fa-facebook"></i> </a></li>
         <li class="share-email"><a rel="nofollow" class="share-email sd-button share-icon no-text" href="//blog.ted.com/2013/12/05/tedwomen-2013-session-3/?share=email" target="_blank" title="Click to email this to a friend"><span></span></a></li>
         <li class="more-social">
             <span class="button"><i class="fa fa-ellipsis-h"></i></span>
             <ul class="no-style more">
-            <li><a class="google-plus" target="_blank" href="https://plus.google.com/share?url=https://demo.templatic.com/video/videos/miley-cyrus-the-climb/"><i class="fa fa-google-plus"></i> Google+</a></li>
-            <li><a href="//pinterest.com/pin/create/button/?url=https://demo.templatic.com/video/videos/miley-cyrus-the-climb/"  count-layout="none"><i class="fa fa-pinterest"></i> Pin It</a></li>
-            <li><a href="//www.linkedin.com/shareArticle?mini=true&url=https://demo.templatic.com/video/videos/miley-cyrus-the-climb/&title=Down the Nile&summary=Down the Nile&source=https://demo.templatic.com/video"  count-layout="none"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
-            <li><a href="mailto:"te&#115;t.tem&#112;&#108;&#97;ti&#99;&#64;&#103;&#109;a&#105;l&#46;co&#109;""><i class="fa fa-envelope"></i>Email</a></li>
-            </ul>
+            <li><a class="google-plus" target="_blank" href="https://plus.google.com/share?url=<%=video_url(video_slug: @video.try(:slug))%>/"><i class="fa fa-google-plus"></i> Google+</a></li>
+            <li><a href="//www.linkedin.com/shareArticle?mini=true&url=<%=video_url(video_slug: @video.try(:slug))%>/&title=<%=@video.try(:title)%>&summary=<%=@video.try(:title)%>&source=<%=root_url%>"  count-layout="none"><i class="fa fa-linkedin"></i> LinkedIn</a></li>
         </li>
-        <!--  <a class="google-plus" target="_blank" href="https://plus.google.com/share?url=">Google+</a> // Remove it to enable google plus -->
     </ul>
 </div>

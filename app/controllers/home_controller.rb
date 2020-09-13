@@ -11,15 +11,8 @@ class HomeController < ApplicationController
   end
 
   def categories
-   tab = params[:tab] || 'latest'
-   videos = case tab
-   when  'most_viewed'
-    @category.most_viewed_videos
-   when 'most_commented'
-    @category.most_commented_videos
-   when 'latest'
-     @category.latest_videos
-   end
+   tab = Category::SUPPORTED_VIDEO_SCOPES.include?(params[:tab]) ? params[:tab] : 'latest_videos'
+   videos  = @category.send(:"#{tab}")
    @videos = videos.with_attachments.page(params[:page]).per(2)
    add_breadcrumb(@category.try(:title))
   end
@@ -34,30 +27,16 @@ class HomeController < ApplicationController
   end
 
   def videos
-    tab = params[:tab] || 'latest'
-    videos = case tab
-    when  'most_viewed'
-      VideoItem.most_viewed
-    when 'most_commented'
-      VideoItem.most_commented
-    when 'latest'
-      VideoItem.latest_videos
-    end
+    tab = VideoItem::SUPPORTED_SCOPES.include?(params[:tab]) ? params[:tab] : 'latest_videos'
+    videos = VideoItem.send(:"#{tab}")
     @videos = videos.page(params[:page]).per(3)
     add_breadcrumb(tab)
   end
 
   def search
     videos = VideoItem.search(params[:q])
-    tab = params[:tab] || 'latest'
-    videos = case tab
-    when  'most_viewed'
-      videos.most_viewed
-    when 'most_commented'
-      videos.most_commented
-    when 'latest'
-      videos.latest_videos
-    end
+    tab = VideoItem::SUPPORTED_SCOPES.include?(params[:tab]) ? params[:tab] : 'latest_videos'
+    videos = videos.send(:"#{tab}")
     @videos = videos.page(params[:page]).per(3)
   end
 

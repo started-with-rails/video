@@ -1,25 +1,26 @@
-class ThumbnailGenerateService
+class VideoThumb
+
     attr_reader :video
-   
+    
     def initialize(video)
       @video = video
     end
 
-    def call
-        get_thumbnail_url
+    def get(size='large')
+      get_thumbnail_url size
     end
 
     private
 
-    def get_thumbnail_url
+    def get_thumbnail_url size
       return get_video_thumbnail if video.try(:video_thumbnail).attached?
-      case video.try(:video_type)
+      image = case video.try(:video_type)
       when 'video_file'
         get_thumbnail_from_video_file
       when 'video_url'
         get_video_thumbnail
-      else
-        "missing.jpg"
+      when 'embed_code'
+        EmbedVideoThumb.new.get(video.try(:embed_code), size)
       end
       rescue => e
         "missing.jpg"

@@ -1,6 +1,9 @@
 module VideoScopes
     extend ActiveSupport::Concern
     included do
+
+        SUPPORTED_SCOPES = %W(most_viewed most_rated most_commented latest_videos popular_videos)
+
         scope :recent, -> { order(created_at: :desc)}
         scope :active, -> { where(status: true)}
         scope :featured, -> { where(featured: true).active}

@@ -18,11 +18,11 @@
                     <!-- #End-->
                     <!-- Tabs start -->
                       <dd class="<%=get_tab_status('latest', params[:tab])%>">
-                        <%=link_to 'Latest', category_path(category_slug: params[:category_slug], tab: 'latest') %></dd>
+                        <%=link_to 'Latest', category_path(category_slug: params[:category_slug], tab: 'latest_videos') %></dd>
                     <dd class="<%=get_tab_status('most_viewed', params[:tab])%>">
-                        <%=link_to 'Most Viewed', category_path(category_slug: params[:category_slug], tab: 'most_viewed') %></dd>
+                        <%=link_to 'Most Viewed', category_path(category_slug: params[:category_slug], tab: 'most_viewed_videos') %></dd>
                     <dd class="<%=get_tab_status('most_commented', params[:tab])%>">
-                        <%=link_to 'Most Commented', category_path(category_slug: params[:category_slug], tab: 'most_commented') %></dd>
+                        <%=link_to 'Most Commented', category_path(category_slug: params[:category_slug], tab: 'most_commented_videos') %></dd>
                     <!-- Tabs #End-->
                 </dl>
                 <!-- Tab start -->

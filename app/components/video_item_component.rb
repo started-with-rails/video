@@ -20,14 +20,7 @@ class VideoItemComponent < ViewComponent::Base
     end
 
     def video_preview_image
-        case video_type
-        when 'embed_code'
-         EmbedCodeThumbGenerateService.new(video).call
-        when 'video_url','video_file'
-         ThumbnailGenerateService.new(video).call
-        else
-          "missing.jpg" 
-        end
+        VideoThumb.new(video).get('medium')
     end
 
     def category_title

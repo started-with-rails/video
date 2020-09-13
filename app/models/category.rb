@@ -1,5 +1,8 @@
 class Category < ApplicationRecord
   include FriendlyUrl
+
+  SUPPORTED_VIDEO_SCOPES = %W(most_viewed_videos most_rated_videos most_commented_videos latest_videos)
+
   scope :active, -> {where(:status => true)}
   has_and_belongs_to_many :video_items
   has_and_belongs_to_many :latest_videos, ->  { latest_videos }, class_name: 'VideoItem'

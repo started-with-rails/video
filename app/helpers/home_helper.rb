@@ -1,7 +1,7 @@
 module HomeHelper
     
     def video_preview_image(video)
-        EmbedCodeThumbGenerateService.new(video).call
+        VideoThumb.new(video).get('max')
     end
 
     def video_views_count(video)
